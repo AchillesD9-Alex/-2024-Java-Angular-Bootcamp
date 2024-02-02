@@ -1,0 +1,11 @@
+Vaaale, ya lo entiendo.
+
+El nombre de archivos es un poco lío, pero bueno.
+
+Básicamente, "Commit" es enviar toooodo lo de la carpeta: hacerle el pantallazo.
+
+En este Commit voy a eliminar los primeros archivos y dejar sólo este.
+
+Deberé ver que los demás se han eliminado y que queda este único .txt
+
+Así tendré menos lío de archivos... Vamos a rezar
