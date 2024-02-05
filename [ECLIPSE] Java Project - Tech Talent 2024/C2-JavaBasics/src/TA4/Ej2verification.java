@@ -23,8 +23,8 @@ mostrar por pantalla:
 			
 	System.out.println("El valor de la variable n es " +n);
 	System.out.println("El valor de la variable a es " +a);
-	System.out.println("El valor (carácter) de la variable c es " +c);
-	System.out.println("");
+	System.out.println("El valor (carácter) de la variable c es " +c+ "\n");
+	
 	
 	/*Muestra por pantalla la suma de N + A*/
 	
@@ -40,9 +40,9 @@ mostrar por pantalla:
 	
 	int valorNumC=(int)c;
 	
-	System.out.println("El carácter de c es " +c+ " (dicho anteriormente arriba) y su valor numérico es: " +valorNumC);
+	System.out.println("El carácter de c es " +c+ " (dicho anteriormente arriba) y su valor numérico es: " +valorNumC+ "\n");
 	
-	System.out.println("FIN");
+	System.out.println("FIN DE PROGRAMA");
 	
 	}
 
