@@ -13,7 +13,8 @@ public class Test2 {
 		//Obtención del entero que almacena cada objeto Integer
 		//Si no se hace esto, las líneas siguientes causarían error de compilación
 
-		int n1=num1.intValue(); //Corrige el txt a num, es un paso que no debería de estar, pero hace que el programa acabe dando la suma correcta
+		int n1=num1.intValue(); //Corrige el txt a num, es un paso que no debería de estar,
+								//pero hace que el programa acabe dando la suma correcta
 
 		int n2=num2.intValue();
 
