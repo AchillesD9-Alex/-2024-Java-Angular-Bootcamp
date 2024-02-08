@@ -10,7 +10,7 @@ public class Ej3JOptionPane {
 		String user_Name = JOptionPane.showInputDialog(
 				"Por favor, introduce tu nombre:");
 		
-		JOptionPane.showInternalMessageDialog(null,
+		JOptionPane.showMessageDialog(null,
 				"¡Hola, " + user_Name + "!");
 	}
 }

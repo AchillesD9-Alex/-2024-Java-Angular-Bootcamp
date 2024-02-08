@@ -16,8 +16,8 @@ public class Ej6 {
 		sc.close(); //Cierra la entrada de datos
 		
 		double prod = Double.parseDouble(initialPROD); //Genera double prod
-		final double IVA = 1.21; //Generamos CTE IVA
-		double price = (prod * IVA);
+		final double IVA = 0.21; //Generamos CTE IVA
+		double price = prod + (prod * IVA);
 		
 		System.out.println("\nEl importe final con IVA es de " + price + " €");
 		
