@@ -28,7 +28,8 @@ public class Ej12DoWhile {
 					}		
 		
 		}while(n<3 && !pass.equals(passTRUE)); // !nom.equals en String o != para NUM
-		//Chat GPT me ha puesto and difernte aunque yo tenía puesto OR || igual (equals)
+		//Chat GPT me ha puesto and diferente aunque yo tenía puesto OR || igual (equals)
+		//Aprovecho y lo dejo así para ver las dos opciones
 		
 		sc.close();
 	}

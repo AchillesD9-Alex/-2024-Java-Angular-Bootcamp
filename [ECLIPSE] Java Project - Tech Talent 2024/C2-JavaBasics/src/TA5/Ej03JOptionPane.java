@@ -2,7 +2,7 @@ package TA5;
 
 import javax.swing.JOptionPane;
 
-public class Ej3JOptionPane {
+public class Ej03JOptionPane {
 	
 	public static void main(String[] args) {
 		

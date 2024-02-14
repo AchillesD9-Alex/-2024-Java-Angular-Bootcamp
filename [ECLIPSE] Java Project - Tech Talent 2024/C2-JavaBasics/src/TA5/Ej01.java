@@ -1,6 +1,6 @@
 package TA5;
 
-public class Ej1 {
+public class Ej01 {
 
 	public static void main(String[] args) {
 		int a = 5, b = 5;

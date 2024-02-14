@@ -12,30 +12,22 @@ public class Ej11 {
 		System.out.println("Por favor, introduce dia deseado (sin tilde):");
 		
 		String dia = sc.nextLine();
+		dia = dia.toUpperCase(); // Lo pasamos a MAYUS para evitar formatos de entrada
 		
 		sc.close();
 		
 		switch (dia){
 		
-		case "Lunes":
+		case "LUNES":
 			System.out.println("Hoy es " + dia + ". Es laboral (excepto peluquerías).");
 			break;
-		case "Martes":
+		case "MARTES", "MIERCOLES", "JUEVES", "VIERNES":
 			System.out.println("Hoy es " + dia + ". Es laboral.");
 			break;
-		case "Miercoles":
-			System.out.println("Hoy es " + dia + ". Es laboral.");
-			break;
-		case "Jueves":
-			System.out.println("Hoy es " + dia + ". Es laboral.");
-			break;
-		case "Viernes":
-			System.out.println("Hoy es " + dia + ". Es laboral.");
-			break;
-		case "Sabado":
+		case "SABADO":
 			System.out.println("Hoy es " + dia + ". Generalmente, es festivo.");
 			break;
-		case "Domingo":
+		case "DOMINGO":
 			System.out.println("Hoy es " + dia + ". Mayoritariamente es festivo.");
 			break;
 		

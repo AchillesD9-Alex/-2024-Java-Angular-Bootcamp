@@ -1,8 +1,6 @@
 package TA5;
 
-import java.util.Scanner;
-
-public class Extra3 {
+public class Extra02 {
 	
 	public static void main(String[] args) {
 		/* Escribe un programa que imprima todas

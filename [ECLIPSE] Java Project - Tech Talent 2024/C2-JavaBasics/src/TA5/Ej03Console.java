@@ -2,7 +2,7 @@ package TA5;
 
 import java.util.Scanner;
 
-public class Ej3Console {
+public class Ej03Console {
 	
 	public static void main(String[] args) {
 		
