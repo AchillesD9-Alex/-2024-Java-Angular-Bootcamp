@@ -22,10 +22,13 @@ public class Extra05 {
 	
 	StringBuilder INVword = new StringBuilder(); /*Comando para GENERAR STRING*/
 	
-	for (l = l-1 ; l >= 0; l-- ) {
-		INVword.append(word.charAt(l));
+	System.out.println("\nVamos a invertir, una a una, las letras de la palabra empezando por el final:");
+	
+	for (l = l-1 ; l >= 0; l-- ) {		//l = l-1 para cuadrar los indices; último carácter = length -1
+		INVword.append(word.charAt(l)); //charAt: dice el carácter de la posición y append lo concatena a INVword
+		System.out.println(INVword);
 	}
-	String iWord = INVword.toString(); //Transforma el formato StringVuilder a String para poder compararlo en el codicional
+	String iWord = INVword.toString();	//Transforma el formato StringBuilder a String para poder compararlo en el codicional
 	System.out.println("La palabra INVERTIDA es: "+iWord+ ".\n");
 	
 	if(word.equals(iWord)) {
