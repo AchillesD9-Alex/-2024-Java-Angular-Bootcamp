@@ -2,30 +2,38 @@ package TA6;
 
 import java.util.Scanner;
 
-public class Ej09 {
+public class Ej11 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Ingresa la longitud del Array:");
+		System.out.println("Ingresa la longitud de los arrays a crear:");
 			int lengthIntro = Integer.parseInt(sc.nextLine());
-			
-		int[]arrayCreado = crearYrellenarArrayRANDOM(lengthIntro);
 		
-		System.out.print("El array creado es: ");
-		imprimirArray(arrayCreado);
-		System.out.println("\nLa suma de los valores del array es: " +sumaArray(lengthIntro, arrayCreado));
+		System.out.println("Para el primer array:");
+		int[]array1= crearYrellenarArrayRANDOM(lengthIntro);
 		
+		System.out.println("Para el segundo array:");
+		int[]array2= crearYrellenarArrayRANDOM(lengthIntro);
+		
+		System.out.println("El primer array generado es:");
+		imprimirArray(array1);
+		System.out.println("\n\nEl segundo array generado es:");
+		imprimirArray(array2);
+		int[]array1x2 = multiplicarArrays(lengthIntro,array1, array2);
+		System.out.println("\n\nEl array producto entre el primero y el segundo es:");
+		imprimirArray(array1x2);
+		sc.close();
 	}
 	
-	public static int sumaArray(int lenghtArray, int[] arrayAsumar) {
-		int sumaValores = 0;
-		int i = 0;
-		do{
-			sumaValores += arrayAsumar[i];
-			i++;
-		}while (lenghtArray > i);
+	public static int[] multiplicarArrays(int lengthArrays, int[] primerArray, int[] segundoArray) {
 		
-	return sumaValores;	
+		int arrayMultiplicado[] = new int[lengthArrays];
+		
+		for (int i = 0; i <lengthArrays; i++) {
+				arrayMultiplicado[i] = primerArray[i]*segundoArray[i];
+		}
+	
+	return arrayMultiplicado;
 	}
 	
 	public static int[] crearYrellenarArrayRANDOM(int lengthArray) {
@@ -42,7 +50,7 @@ public class Ej09 {
 				int randomNum = (int)(Math.random()* (randomMax -randomMin +1)) +randomMin;
 				array[i] = randomNum;
 		}
-		
+	
 	return array;
 	}
 	

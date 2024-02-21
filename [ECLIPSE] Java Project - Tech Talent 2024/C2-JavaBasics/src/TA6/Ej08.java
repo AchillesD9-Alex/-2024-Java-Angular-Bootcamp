@@ -20,7 +20,7 @@ public class Ej08 {
 		int array[] = new int[lengthArray];
 		
 		for (int i = 0; i <lengthArray; i++) {
-				System.out.println("Ingresa el valor deseado");
+				System.out.println("Ingresa el valor deseado a introducir al array");
 				int valorDeseado = Integer.parseInt(sc.nextLine());
 				array[i] = valorDeseado;
 		}

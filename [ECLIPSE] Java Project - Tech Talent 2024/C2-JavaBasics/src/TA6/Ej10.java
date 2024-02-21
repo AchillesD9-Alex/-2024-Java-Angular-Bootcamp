@@ -16,18 +16,30 @@ public class Ej10 {
 	
 	public static int[] crearYrellenarArrayRANDOM(int lengthArray) {
 		Scanner sc = new Scanner(System.in);
-		
+				
 		System.out.println("Introduce el valor minimo de numero aleatorio:");
 			int randomMin = Integer.parseInt(sc.nextLine());
 		System.out.println("Introduce el valor máximo de numero aleatorio:");
 			int randomMax = Integer.parseInt(sc.nextLine());
 		
 		int array[] = new int[lengthArray];
+		int i = 0;
 		
-		for (int i = 0; i <lengthArray; i++) {
-				int randomNum = (int)(Math.random()* (randomMax -randomMin +1)) +randomMin;
-				array[i] = randomNum;
-		}
+		/* Añado la condición if al bucle, que lo cambio de un for a un do-while
+		 * en el bucle añado la verificación de que sea primo, con el metodo añadido
+		 * de boolean (mas adelante)
+		 * Sumo +1 al contador DESPUES de añadir el valor al array, sino daria error
+		 * ya que se "desbordaría" (querria añadir valor a una posición incorrecta)*/
+		
+		do{
+			int randomNum = (int)(Math.random()* (randomMax -randomMin +1)) +randomMin;
+				
+				if (saber(randomNum)) {
+					array[i] = randomNum;
+					i++;
+				}
+				
+		}while(i < lengthArray);
 		
 	return array;
 	}
@@ -41,4 +53,22 @@ public class Ej10 {
 		}
 	}
 	
+	
+	/*Añado el metodo boolean para saber si el numero es primo
+	 * del ejericio 3. */
+	
+	public static boolean saber (int numINTRO) {
+		
+		if (numINTRO <= 1) {
+			return false;
+		}
+		for (int contador = 2; contador <=Math.sqrt(numINTRO); contador++) { 
+			if (numINTRO % contador == 0) {
+				return false;
+					}
+			}
+		return true;
+		
+		}
+
 }

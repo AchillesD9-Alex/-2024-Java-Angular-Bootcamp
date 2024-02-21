@@ -26,10 +26,12 @@ public class Ej05 {
 		
 		StringBuilder binario = new StringBuilder();
 		
+		int residuo;
 		do {
-			int residuo = decimal % 2;
+			residuo = decimal % 2;
 			binario.insert(0, residuo);
 			decimal = decimal / 2;
+			System.out.println(residuo + " " + decimal);
 			 
 			}while(decimal > 0);
 		return binario.toString(); //StringBuilder --> String

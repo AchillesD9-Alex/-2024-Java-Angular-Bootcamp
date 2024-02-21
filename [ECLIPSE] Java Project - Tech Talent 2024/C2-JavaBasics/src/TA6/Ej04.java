@@ -22,8 +22,8 @@ public class Ej04 {
 		int prod = 1; //1 para no multiplicar por cero y fastidiar el cálculo
 		
 		do {
-			 prod = prod * numINTRO--;
-			}while(numINTRO >= 1);
-		return prod;
+			 prod *= numINTRO--; //*= --> prod = prod * numIntro--;
+			}while(numINTRO > 1);
+	return prod;
 	}
 }
