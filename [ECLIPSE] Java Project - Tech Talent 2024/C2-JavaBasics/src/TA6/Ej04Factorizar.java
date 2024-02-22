@@ -2,8 +2,12 @@ package TA6;
 
 import java.util.Scanner;
 
-public class Ej04 {
-		
+public class Ej04Factorizar {
+	/*  Crea una aplicación que nos calcule el factorial de un número pedido por teclado
+	 *  Lo realizara mediante un método al que le pasamos el número como parámetro.
+	 */
+
+	
 	public static void main(String[] args) {
 		
 		int num;

@@ -2,8 +2,10 @@ package TA6;
 
 import java.util.Scanner;
 
-public class Ej05 {
-		
+public class Ej05Binario {
+	/* Crea una aplicación que nos convierta un número en base decimal a binario.
+	 */
+	
 	public static void main(String[] args) {
 		
 		int bin;
@@ -31,7 +33,7 @@ public class Ej05 {
 			residuo = decimal % 2;
 			binario.insert(0, residuo);
 			decimal = decimal / 2;
-			System.out.println(residuo + " " + decimal);
+			System.out.println("residuo: " +residuo+ ", numero decimal restante:" + decimal);
 			 
 			}while(decimal > 0);
 		return binario.toString(); //StringBuilder --> String

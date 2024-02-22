@@ -2,7 +2,7 @@ package TA6;
 
 import java.util.Scanner;
 
-public class Ej03 {
+public class Ej03EsPrimoMetodo {
 		
 	public static void main(String[] args) {
 		/* Escribe un programa que dado un número, calcule si es primo o no.
@@ -20,7 +20,6 @@ public class Ej03 {
 			}else {
 				System.out.println("El número escogido no es primo");
 			}
-		
 	}
 	
 	public static boolean saber (int numINTRO) {
