@@ -2,8 +2,12 @@ package TA6;
 
 import java.util.Scanner;
 
-public class Ej11 {
-
+public class Ej11ProductoArrays {
+	/* Crea dos arrays con la longitud deseada (pedida por teclado).
+	 * Rellena, con numeros randoms, ambos arrays.
+	 * Multiplica los valores de los arrays y devuelve el producto en un tercer array.
+	 */
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingresa la longitud de los arrays a crear:");

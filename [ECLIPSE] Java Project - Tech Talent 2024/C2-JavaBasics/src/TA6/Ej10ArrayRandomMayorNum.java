@@ -2,8 +2,13 @@ package TA6;
 
 import java.util.Scanner;
 
-public class Ej10 {
-
+public class Ej10ArrayRandomMayorNum {
+	/* Crea un array de tamaño pedido por teclado.
+	 * El array contendrá numeros aleatorios primos entre un rango deseado.
+	 * Devuelve por consola el numero primo mayor que se haya generado.
+	 * Comprueba que el numero sea primo. 
+	 */
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingresa la longitud del Array:");
@@ -11,7 +16,11 @@ public class Ej10 {
 			
 		int[]arrayCreado = crearYrellenarArrayRANDOM(lengthIntro);
 		
+		System.out.print("El array generado es: ");
 		imprimirArray(arrayCreado);
+		
+		System.out.print("\nEl numero primo mas grande que contiene es: " +mayorNum(arrayCreado));
+		
 	}
 	
 	public static int[] crearYrellenarArrayRANDOM(int lengthArray) {
@@ -65,10 +74,21 @@ public class Ej10 {
 		for (int contador = 2; contador <=Math.sqrt(numINTRO); contador++) { 
 			if (numINTRO % contador == 0) {
 				return false;
-					}
+				}
 			}
 		return true;
-		
+	}
+	
+	public static int mayorNum (int[] arrayEscogido) {
+//	Comparamos todas las posiciones del array; suponemos que el primer valor es el mas grande.
+//	Iremos sobreescribiendo el valor segun si encontramos uno que sea mayor al actual o no.
+		int max = arrayEscogido[0];
+		for (int i = 1; i < arrayEscogido.length; i++) {
+	        if (arrayEscogido[i] > max) {
+	            max = arrayEscogido[i];
+	        }
 		}
+	    return max;
+	}
 
 }

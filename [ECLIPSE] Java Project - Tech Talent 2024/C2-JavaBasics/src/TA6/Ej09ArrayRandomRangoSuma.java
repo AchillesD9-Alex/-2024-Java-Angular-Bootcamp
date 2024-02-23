@@ -2,8 +2,13 @@ package TA6;
 
 import java.util.Scanner;
 
-public class Ej09 {
-
+public class Ej09ArrayRandomRangoSuma {
+	/* Crea un array cuya longitud sea entrada por teclado
+	 * Rellena el array mediante un metodo que genere numeros aleatorios, pero cada vez que vaya
+	 * a generarse un numero, deberá de estar en un rago que el usuario introduzca.
+	 * Al final, muestra el array generado.
+	 */
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingresa la longitud del Array:");
