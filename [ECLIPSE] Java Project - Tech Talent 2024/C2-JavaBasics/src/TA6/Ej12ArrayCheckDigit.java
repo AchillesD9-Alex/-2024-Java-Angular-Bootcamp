@@ -30,7 +30,6 @@ public class Ej12ArrayCheckDigit {
 	
 	
 	public static int[] crearYrellenarArrayRANDOM(int lengthArray) {
-		Scanner sc = new Scanner(System.in);
 		
 		int array[] = new int[lengthArray];
 		
@@ -55,11 +54,11 @@ public class Ej12ArrayCheckDigit {
 	public static void checkArray (int array2check[], String num2check) {
 		System.out.print("Los numeros cuyo ultimo digito es " +num2check+ " son:");
 		for (int i = 0; i < array2check.length; i++) {
-			String checkPosition = String.valueOf(array2check[i]);
-			char lastDigit = checkPosition.charAt(checkPosition.length() -1);
+			String valuePosition = String.valueOf(array2check[i]);
+			char lastDigit = valuePosition.charAt(valuePosition.length() -1);
 			
 			if (String.valueOf(lastDigit).equals(num2check)) {
-				System.out.print("\n" +checkPosition);
+				System.out.print("\n" +valuePosition);
 			}
 
 		}
@@ -76,18 +75,18 @@ public class Ej12ArrayCheckDigit {
 	    int coincidencias = 0; //contador generado
 
 	    for (int i = 0; i < array2check.length; i++) {
-	        String checkPosition = String.valueOf(array2check[i]);
-	        char lastDigit = checkPosition.charAt(checkPosition.length() - 1);
+	        String valuePosition = String.valueOf(array2check[i]);
+	        char lastDigit = valuePosition.charAt(valuePosition.length() - 1);
 
 	        if (String.valueOf(lastDigit).equals(num2check)) {
 	            numerosGuardadosTEMP[coincidencias] = array2check[i];
 	            coincidencias++;
 	        }
 	    }
-
+	    int sizeArrayFinal = coincidencias;
 //	    Elimino las posiciones que no tienen valor copiado y doy como length del nuevo array
 //	    el valor del contador, que aumenta por cada valor copiado.
-	    int[] arrayFinal = new int[coincidencias];
+	    int[] arrayFinal = new int[sizeArrayFinal];
 	    
 //		arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
 	    /* src: copiamos el array origen
@@ -96,7 +95,7 @@ public class Ej12ArrayCheckDigit {
 	     * destPos: lo mismo, posicion inicila array origen a partir de la cual copiamos
 	     * length: NUMERO DE ELEMENTOS a copiar, desde OG a Final
 	     */
-	    System.arraycopy(numerosGuardadosTEMP, 0, arrayFinal, 0, coincidencias);
+	    System.arraycopy(numerosGuardadosTEMP, 0, arrayFinal, 0, sizeArrayFinal);
 	    
 	    return arrayFinal;
 	}
