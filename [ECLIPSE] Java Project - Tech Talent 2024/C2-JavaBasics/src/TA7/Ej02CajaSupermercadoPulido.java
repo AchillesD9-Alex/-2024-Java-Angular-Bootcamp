@@ -5,10 +5,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
 
-/* Pide el numero de alumnos del curso de programación.
- * Crea un Hashmap para guardar sus nombres y su nota media.
- * La nota media se calculará mediante un método (parcialA + parcialB).
- * Todos estos datos se han de proporcionar por pantalla.
+/* Gestiona el flujo de ventas de un supermercado:
+ * Debes guardar los productos comprados.
+ * Mostrará por pantalla:
+ 	IVA aplicado (4 ó 21%) / precio bruto / precio neto
+ 	Cantidad de artículos comprados / Pago / Devolución 
  */
 
 public class Ej02CajaSupermercadoPulido {
@@ -45,21 +46,18 @@ public class Ej02CajaSupermercadoPulido {
         System.out.println("-- RESUMEN DE LA COMPRA --");
         for (String nombreProducto : compra.keySet()) {
             Double[] detalles = compra.get(nombreProducto);
-            System.out.println("Array detalles para " + nombreProducto + ": ");
-            for (int i = 0; i < detalles.length; i++) {
-                System.out.println("Elemento " + i + ": " + detalles[i]);
-            }
+            
             double precioBruto = detalles[0];
             double precioNeto = detalles[1];
             double iva = detalles[2];
-            System.out.println("Producto: " + nombreProducto);
-            System.out.println("Precio Bruto: " + precioBruto + "€ / Precio Neto: " + precioNeto + "€ / IVA: " + iva + "%");
-            System.out.println();
+            System.out.println("Producto: " +nombreProducto+
+            		"\nPrecio Bruto: " + precioBruto + "€ / Precio Neto: " + precioNeto +
+            			"€ / IVA: " + iva + "%");
         }
 
-        System.out.println("Total de artículos comprados: " + totalDeArticulos);
-        System.out.println("Total de la compra (Bruto): " + totalCompraBruto);
-        System.out.println("Total de la compra (Neto): " + totalCompraNeto);
+        System.out.println("Total de artículos comprados: " + totalDeArticulos+
+        	"\nTotal de la compra (Bruto): " + totalCompraBruto+
+        	"\nTotal de la compra (Neto): " + totalCompraNeto);
 
         System.out.println("¿Efectivo o tarjeta?");
         String tipoPago = sc.nextLine().toUpperCase();
@@ -79,7 +77,8 @@ public class Ej02CajaSupermercadoPulido {
                 System.out.println("Pago con tarjeta realizado.");
                 break;
             default:
-                System.out.println("Método de pago no reconocido.");
+                System.out.println("Método de pago no reconocido"
+                		+ "(escribe \'efectivo\' o \'tarjeta\' la siguiente vez");
                 break;
         }
 
