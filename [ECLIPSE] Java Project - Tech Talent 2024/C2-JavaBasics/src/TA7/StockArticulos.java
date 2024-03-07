@@ -37,10 +37,10 @@ public class StockArticulos {
        StockArticulos patatas = new StockArticulos("Patatas", 2.10, 21, 10);
        StockArticulos manzanas = new StockArticulos("Manzanas", 1.75, 21, 45);
 
-        if (inventario.size() >= 10) {
-            JOptionPane.showMessageDialog(null, "¡El inventario contiene 10 o más productos!",
-            		"Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        }
+//        if (inventario.size() >= 10) {
+//            JOptionPane.showMessageDialog(null, "¡El inventario contiene 10 o más productos!",
+//            		"Mensaje", JOptionPane.INFORMATION_MESSAGE);
+//        }
 
         boolean continuar = true; // Variable para controlar si continuar en el bucle while
 
