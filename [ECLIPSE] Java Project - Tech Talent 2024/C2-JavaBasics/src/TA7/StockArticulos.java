@@ -3,26 +3,39 @@ package TA7;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 
-/* Crea una base de datos de 10 artículos para controlar el stock de productos
-  	de una tienda por medio de un HASHMAP (articulo:precio).
- * El usuario podrá añadir, por medio de interfaz visual, artículos nuevos y
- 	cantidades de estos.
- * El usario podrá consultar la información almacenada en el diccionario referente
- 	a un articulo concreto e incluso listar toda la información en la terminal del programa.
- */
 
-public class Ej03StockTienda {
+public class StockArticulos {
+	
+//	ATRIBUTOS
+	String nombre;
+	double precioBruto;
+	double IVA;
+	int cantidad;
+	
+//	CONSTRUCTORES
+	public StockArticulos()	{
+		this.nombre = "##";
+		this.precioBruto = 0.0;
+		this.IVA = 0.0;
+		this.cantidad = 0;
+	}
+	
+	public StockArticulos(String name, double precioB, double IVAprod, int cantidad)	{
+		this.nombre = "##";
+		this.precioBruto = 0.0;
+		this.IVA = 0.0;
+		this.cantidad = 0;
+	}
+	
     public static void main(String[] args) {
-        HashMap<String, Integer> inventario = new HashMap<>();
-
-        agregarProducto(inventario, "Leche", 20);
-        agregarProducto(inventario, "Pan", 30);
-        agregarProducto(inventario, "Huevos", 40);
-        agregarProducto(inventario, "Arroz", 15);
-        agregarProducto(inventario, "Pasta", 25);
-        agregarProducto(inventario, "Tomates", 35);
-        agregarProducto(inventario, "Patatas", 10);
-        agregarProducto(inventario, "Manzanas", 45);
+       StockArticulos leche = new StockArticulos("Leche", 1.10, 4, 20);
+       StockArticulos pan = new StockArticulos("Pan", 0.90, 4, 30);
+       StockArticulos huevos = new StockArticulos("Huevos", 2.50, 4, 40);
+       StockArticulos arroz = new StockArticulos("Arroz", 1.30, 21, 15);
+       StockArticulos pasta = new StockArticulos("Pasta", 1.25, 21, 25);
+       StockArticulos tomates = new StockArticulos("Tomates", 2.35, 21, 35);
+       StockArticulos patatas = new StockArticulos("Patatas", 2.10, 21, 10);
+       StockArticulos manzanas = new StockArticulos("Manzanas", 1.75, 21, 45);
 
         if (inventario.size() >= 10) {
             JOptionPane.showMessageDialog(null, "¡El inventario contiene 10 o más productos!",
