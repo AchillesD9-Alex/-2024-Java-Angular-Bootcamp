@@ -155,10 +155,11 @@ public class StockArticulos {
 
         while (otroCliente) {
 			HashMap<String, Double[]> compra = new HashMap<>();
-
-			System.out.println("-- INICIO COMPRA --");
-			System.out.println("\nEste es el stock actual de la tienda:");
+			
+			System.out.println("Este es el stock actual de la tienda:\n");
 			mostrarStock();
+			
+			System.out.println("-- INICIO COMPRA --");
 			comprarArticulos(sc, compra);
 			imprimirResumenCompra(compra);
 
