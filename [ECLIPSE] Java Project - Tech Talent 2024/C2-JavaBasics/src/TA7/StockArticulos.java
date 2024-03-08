@@ -4,6 +4,8 @@ package TA7;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.HashMap;
 
 public class StockArticulos {
 
@@ -77,6 +79,15 @@ public class StockArticulos {
         		"El artículo '" + nombre + "' no existe en el inventario.",
         			"Error", JOptionPane.ERROR_MESSAGE);
     }
+    
+    public static StockArticulos buscarArticulo(String nombre) {
+        for (StockArticulos producto : inventario) {
+            if (producto.nombre.equalsIgnoreCase(nombre)) {
+                return producto;
+            }
+        }
+        return null;
+    }
 
     public static void modificarCantidad() {
         String nombre = JOptionPane.showInputDialog
@@ -86,8 +97,8 @@ public class StockArticulos {
         for (StockArticulos producto : inventario) {
             if (producto.nombre.equalsIgnoreCase(nombre)) {
                 int nuevaCantidad = Integer.parseInt(JOptionPane.showInputDialog
-                		("Ingrese la nueva cantidad para el artículo '" + nombre + "':"));
-                			producto.cantidad = nuevaCantidad;
+                	("Ingrese la nueva cantidad para el artículo '"+ nombre + "':"));
+                		producto.cantidad = nuevaCantidad;
 		        JOptionPane.showMessageDialog(null,
 		        		"¡Cantidad modificada correctamente!",
                         	"Mensaje", JOptionPane.INFORMATION_MESSAGE);
@@ -136,6 +147,36 @@ public class StockArticulos {
         StockArticulos manzanas = new StockArticulos("Manzanas", 1.75, 21, 45);
         	inventario.add(manzanas);
         
+        	Scanner sc = new Scanner(System.in);
+            boolean otroCliente = true;
+            double gananciasBrutoTotal = 0;
+            double gananciasNetoTotal = 0;
+
+            while (otroCliente) {
+                HashMap<String, Double[]> compra = new HashMap<>();
+                
+                System.out.println("-- INICIO COMPRA --");
+                comprarArticulos(sc, compra);
+                imprimirResumenCompra(compra);
+
+                double totalCompraBruto = calcularTotalCompraBruto(compra);
+                double totalCompraNeto = calcularTotalCompraNeto(compra);
+                gananciasBrutoTotal += totalCompraBruto;
+                gananciasNetoTotal += totalCompraNeto;
+                imprimirTotalesCompra(totalCompraBruto, totalCompraNeto);
+                procesarPago(sc, totalCompraNeto);
+
+                System.out.println("¿Hay otro cliente? (Y/N)");
+                String respuesta = sc.nextLine().toUpperCase();
+                
+                if (!respuesta.equals("Y")) {
+                    otroCliente = false;
+                    System.out.println("\n-- CAJA FINAL --"
+                            + "\nGanancias totales (Bruto): " + gananciasBrutoTotal +
+                            "\nGanancias totales (Neto): " + gananciasNetoTotal);
+                 }else {
+                     mostrarOpcionesInventario();
+             }
 
         boolean continuar = true; // Variable para controlar si continuar en el bucle while
 
@@ -168,7 +209,128 @@ public class StockArticulos {
                 default:
                     JOptionPane.showMessageDialog(null,
                     		"Opción no válida", "Error", JOptionPane.ERROR_MESSAGE);
+                    
+//			CIERRE SWITCH
             }
+            
+//		CIERRE WHILE
         }
+      }
+//	CIERRE MAIN 
+    }
+    
+//  METODOS EJ2
+ 
+
+ // Va pidiendo los artículos conforme pasan por caja
+    public static void comprarArticulos(Scanner sc, HashMap<String, Double[]> compra) {
+        double totalDeArticulos = 0;
+        do {
+            System.out.println("Ingrese el nombre del artículo:");
+            String nombreProductoComprado = sc.nextLine();
+
+            // Buscar el artículo en el inventario
+            StockArticulos articulo = buscarArticulo(nombreProductoComprado);
+
+            if (articulo != null) {
+                System.out.println("Cantidad disponible: " + articulo.cantidad);
+
+                // Verificar si hay suficiente cantidad en el inventario
+                System.out.println("¿Cuántos desea comprar?");
+                int cantidad = Integer.parseInt(sc.nextLine());
+                if (cantidad > articulo.cantidad) {
+                    System.out.println("No hay suficiente cantidad disponible.");
+                    continue;
+                }
+
+                // Agregar el artículo a la compra
+                double precioConIVA = calcularPrecioConIVA(articulo.precioBruto, articulo.IVA);
+                compra.put(nombreProductoComprado, new Double[]{articulo.precioBruto, precioConIVA, articulo.IVA, (double) cantidad});
+                totalDeArticulos++;
+                // Restar la cantidad comprada del inventario
+                articulo.cantidad -= cantidad;
+            } else {
+                System.out.println("El artículo no está disponible en el inventario.");
+            }
+
+            System.out.println("¿Desea añadir otro artículo? (Y/N)");
+        } while (sc.nextLine().equalsIgnoreCase("Y"));
+    }
+    
+    // Método para procesar el pago
+    public static void procesarPago(Scanner sc, double totalCompraNeto) {
+        System.out.println("\n¿Efectivo o tarjeta?");
+        String tipoPago = sc.nextLine().toUpperCase();
+
+        switch (tipoPago) {
+            case "EFECTIVO":
+                System.out.println("Introduzca la cantidad entregada:");
+                double efectivoEntregado = Double.parseDouble(sc.nextLine());
+                double cambio = efectivoEntregado - totalCompraNeto;
+                if (cambio >= 0) {
+                    System.out.println("Pago recibido. Su cambio es: " + cambio);
+                } else {
+                    System.out.println("La cantidad entregada es insuficiente.");
+                }
+                break;
+            case "TARJETA":
+                System.out.println("Pago con tarjeta realizado.");
+                break;
+            default:
+                System.out.println("Método de pago no reconocido (escribe 'efectivo' o 'tarjeta' la siguiente vez).");
+                break;
+        }
+    }
+//  Te da el tiquet de la compra
+    public static void imprimirResumenCompra(HashMap<String, Double[]> compra) {
+        System.out.println("-- RESUMEN DE LA COMPRA --");
+        for (String nombreProducto : compra.keySet()) {
+            Double[] detalles = compra.get(nombreProducto);
+
+            double precioBruto = detalles[0];
+            double precioNeto = detalles[1];
+            double iva = detalles[2];
+            System.out.println("Producto: " + nombreProducto +
+                    "\nPrecio Bruto: " + precioBruto + "€ / Precio Neto: " + precioNeto +
+                    "€ / IVA: " + iva + "%");
+        }
+    }
+    
+//  Devuelve por consola Total Bruto y Total Neto
+    public static void imprimirTotalesCompra(double totalCompraBruto, double totalCompraNeto) {
+        System.out.println("Total de la compra (Bruto): " + totalCompraBruto +
+                "\nTotal de la compra (Neto): " + totalCompraNeto);
+    }
+//	Método para mostrar opciones del inventario
+    public static void mostrarOpcionesInventario() {
+        System.out.println("\nOpciones del inventario:"
+                + "\n1. Agregar artículo"
+                + "\n2. Eliminar artículo"
+                + "\n3. Modificar cantidad"
+                + "\n4. Mostrar stock"
+                + "\n5. Salir");
+    }
+    
+//  Calcula el precio neto a partir del bruto y su IVA
+    public static double calcularPrecioConIVA(double precio, double iva) {
+        return precio * (1 + iva / 100);
+    }
+    
+//  Calcula el total Bruto de la compra
+    public static double calcularTotalCompraBruto(HashMap<String, Double[]> compra) {
+        double totalCompraBruto = 0;
+        for (Double[] detalles : compra.values()) {
+            totalCompraBruto += detalles[0];
+        }
+        return totalCompraBruto;
+    }
+
+//  Calcula el total Neto de la compra
+    public static double calcularTotalCompraNeto(HashMap<String, Double[]> compra) {
+        double totalCompraNeto = 0;
+        for (Double[] detalles : compra.values()) {
+            totalCompraNeto += detalles[1];
+        }
+        return totalCompraNeto;
     }
 }
