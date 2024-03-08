@@ -1,11 +1,11 @@
 package TA7;
 
-
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class StockArticulos {
 
@@ -58,10 +58,11 @@ public class StockArticulos {
     }
 
     public static void eliminarArticulo() {
+    	
         String nombre = JOptionPane.showInputDialog
         		("Ingrese el nombre del artículo a eliminar:");
         			nombre = nombre.toUpperCase(); // Convertir a mayúsculas
-
+       
         Iterator<StockArticulos> iterator = inventario.iterator();
         while (iterator.hasNext()) {
             StockArticulos producto = iterator.next();
@@ -111,7 +112,7 @@ public class StockArticulos {
     }
 
     public static void mostrarStock() {
-        StringBuilder stock = new StringBuilder("Inventario Actual:\n");
+        StringBuilder stock = new StringBuilder("INVENTARIO ACTUAL:\n");
         
         for (StockArticulos producto : inventario) {
             stock.append(producto.nombre).append(": ").append(producto.cantidad).append("\n");
@@ -130,53 +131,56 @@ public class StockArticulos {
     }
 
     public static void main(String[] args) {
-        StockArticulos leche = new StockArticulos("Leche", 1.10, 4, 20);
+        StockArticulos leche = new StockArticulos("LECHE", 1.10, 4, 20);
         	inventario.add(leche);
-        StockArticulos pan = new StockArticulos("Pan", 0.90, 4, 30);
+        StockArticulos pan = new StockArticulos("PAN", 0.90, 4, 30);
         	inventario.add(pan);
-        StockArticulos huevos = new StockArticulos("Huevos", 2.50, 4, 40);
+        StockArticulos huevos = new StockArticulos("HUEVOS", 2.50, 4, 40);
         	inventario.add(huevos);
-        StockArticulos arroz = new StockArticulos("Arroz", 1.30, 21, 15);
+        StockArticulos arroz = new StockArticulos("ARROZ", 1.30, 21, 15);
         	inventario.add(arroz);
-        StockArticulos pasta = new StockArticulos("Pasta", 1.25, 21, 25);
+        StockArticulos pasta = new StockArticulos("PASTA", 1.25, 21, 25);
         	inventario.add(pasta);
-        StockArticulos tomates = new StockArticulos("Tomates", 2.35, 21, 35);
+        StockArticulos tomates = new StockArticulos("TOMATES", 2.35, 21, 35);
         	inventario.add(tomates);
-        StockArticulos patatas = new StockArticulos("Patatas", 2.10, 21, 10);
+        StockArticulos patatas = new StockArticulos("PATATAS", 2.10, 21, 10);
         	inventario.add(patatas);
-        StockArticulos manzanas = new StockArticulos("Manzanas", 1.75, 21, 45);
+        StockArticulos manzanas = new StockArticulos("MANZANAS", 1.75, 21, 45);
         	inventario.add(manzanas);
         
-        	Scanner sc = new Scanner(System.in);
-            boolean otroCliente = true;
-            double gananciasBrutoTotal = 0;
-            double gananciasNetoTotal = 0;
+        Scanner sc = new Scanner(System.in);
+        boolean otroCliente = true;
+        double gananciasBrutoTotal = 0;
+        double gananciasNetoTotal = 0;
 
-            while (otroCliente) {
-                HashMap<String, Double[]> compra = new HashMap<>();
-                
-                System.out.println("-- INICIO COMPRA --");
-                comprarArticulos(sc, compra);
-                imprimirResumenCompra(compra);
+        while (otroCliente) {
+			HashMap<String, Double[]> compra = new HashMap<>();
 
-                double totalCompraBruto = calcularTotalCompraBruto(compra);
-                double totalCompraNeto = calcularTotalCompraNeto(compra);
-                gananciasBrutoTotal += totalCompraBruto;
-                gananciasNetoTotal += totalCompraNeto;
-                imprimirTotalesCompra(totalCompraBruto, totalCompraNeto);
-                procesarPago(sc, totalCompraNeto);
+			System.out.println("-- INICIO COMPRA --");
+			System.out.println("\nEste es el stock actual de la tienda:");
+			mostrarStock();
+			comprarArticulos(sc, compra);
+			imprimirResumenCompra(compra);
 
-                System.out.println("¿Hay otro cliente? (Y/N)");
-                String respuesta = sc.nextLine().toUpperCase();
-                
-                if (!respuesta.equals("Y")) {
-                    otroCliente = false;
-                    System.out.println("\n-- CAJA FINAL --"
-                            + "\nGanancias totales (Bruto): " + gananciasBrutoTotal +
-                            "\nGanancias totales (Neto): " + gananciasNetoTotal);
-                 }else {
-                     mostrarOpcionesInventario();
-             }
+			double totalCompraBruto = calcularTotalCompraBruto(compra);
+			double totalCompraNeto = calcularTotalCompraNeto(compra);
+			gananciasBrutoTotal += totalCompraBruto;
+			gananciasNetoTotal += totalCompraNeto;
+			imprimirTotalesCompra(totalCompraBruto, totalCompraNeto);
+			procesarPago(sc, totalCompraNeto);
+
+			System.out.println("¿Hay otro cliente? (Y/N)");
+			String respuesta = sc.nextLine().toUpperCase();
+
+			if (!respuesta.equals("Y")) {
+				otroCliente = false;
+				System.out.println("\n-- CAJA FINAL --" +
+						"\nGanancias totales (Bruto): " + gananciasBrutoTotal
+						+ "\nGanancias totales (Neto): " + gananciasNetoTotal);
+				
+			} else {
+				mostrarOpcionesInventario();
+			}
 
         boolean continuar = true; // Variable para controlar si continuar en el bucle while
 
