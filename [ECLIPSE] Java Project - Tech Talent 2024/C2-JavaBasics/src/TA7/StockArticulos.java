@@ -7,6 +7,11 @@ import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Iterator;
 
+/* Junta el ej 2 y 3. COnforme compres artículos, deberán restarse del stock.
+ * Deben de conservarse las opciones del stock del ej 3.
+ * Mejora lo que consideres oportuno.
+ */
+
 public class StockArticulos {
 
     //	ATRIBUTOS
