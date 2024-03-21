@@ -28,7 +28,7 @@ public class Persona {
 		this.ciudad = "";
 	}
 	 
-//	Para PersonaMainApp
+//	Para ejercicio de clase en MainApp
 	public Persona(String nombre, int edad, String ciudad) {
 		this.nombre = nombre;
 		this.edad = edad;
