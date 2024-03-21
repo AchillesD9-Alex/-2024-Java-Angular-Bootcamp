@@ -32,23 +32,34 @@ public class Persona {
 	public Persona(String nombre, int edad, String ciudad) {
 		this.nombre = nombre;
 		this.edad = edad;
-		this.ciudad = ciudad;
+		this.DNI ="";
+		this.sexo = SEXO_HOMBRE;
+		this.peso = 0;
+		this.altura = 0;
+		this.ciudad = ciudad;		
 	}
+	
 //	Constructor nombre, edad y sexo; resto por defecto
 	public Persona(String nombre, int edad, char sexo) {
 		this.nombre = nombre;
 		this.edad = edad;
+		this.DNI ="";
 		this.sexo = sexo;
+		this.peso = 0;
+		this.altura = 0;
+		this.ciudad = "";
 	}
 
 //	Constructor todos los atributos como parámetro
-	public Persona(String nombre, int edad, String DNI, char sexo, double peso, double altura) {
+	public Persona(String nombre, int edad, String DNI, char sexo, double peso,
+					double altura, String ciudad) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.DNI = DNI;
 		this.sexo = sexo;
 		this.peso = peso;
 		this.altura = altura;
+		this.ciudad = ciudad;
 	}
 	
 	
@@ -122,4 +133,26 @@ public class Persona {
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
+	
+	public String imprimirPersona() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", DNI='" + DNI + '\'' +
+                ", sexo=" + sexo +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                ", ciudad='" + ciudad + '\'' +
+                '}';
+    }
+	 // Sobrescribir el método toString()
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", ciudad='" + ciudad + '\'' +
+                '}';
+    }
+	
 }

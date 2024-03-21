@@ -14,14 +14,14 @@ public class Password {
 		this.longitud = 8;
 	}
 	
-//	Constructor contraseña
+//	Constructor contraseña (no se pide)
 	public Password(String contraseña) {
-		this.contraseña = contraseña;
+		setContraseña(contraseña);
 	}
 	
-//	Constructor longitud
+//	Constructor longitud + generar contraseña aleatoria
 	public Password(int longitud) {
-		this.longitud = longitud;
+		setLongitud(longitud);
 	}
 
 //	Constructor todos los atributos como parámetro
@@ -36,7 +36,13 @@ public class Password {
 		return contraseña;
 	}
 
-	public void setContraseña(String contraseña, int longitud) {
+//	Con la longitud que tenga actualmente la Password, se pide una contraseña al usuario.
+	/* Se pide como string para que quede claro en el contructor; si tuviese un main,
+	 * la peticion de la contraseña mediante JOpP estaría ahí. Ahora mismo repito el
+	 * input de la contraseña, pero soy consciente de ello.
+	 */
+	public void setContraseña(String contraseña) {
+		int longitud = getLongitud();
 		contraseña = JOptionPane.showInputDialog
         		("Ingrese la nueva contraseña de " +longitud+ " carácteres.");
 		int longitudNewPas = contraseña.length();
@@ -48,17 +54,27 @@ public class Password {
             		("Ingrese la nueva contraseña de " +longitud+ " carácteres.");
         	longitudNewPas = contraseña.length();
         }
-        this.longitud = contraseña.length();
+        
         this.contraseña = contraseña;
 		
 	}
 
+//	Se pide una contraseña al usuario y se actualiza la length de Password acorde a la nueva contraseña.
+	public void setFreeContraseña() {
+		
+		String contraseña = JOptionPane.showInputDialog
+        		("Ingrese la nueva contraseña.");
+		
+        this.longitud = contraseña.length();
+        this.contraseña = contraseña;
+	}
+	
 	public int getLongitud() {
 		return longitud;
 	}
 
-	public void setLongitud() {
-    	int longitud = Integer.parseInt(JOptionPane.showInputDialog("Introduce la longitud nueva deseada:"));
+	public void setLongitud(int longitud) {
+    	longitud = Integer.parseInt(JOptionPane.showInputDialog("Introduce la longitud nueva deseada:"));
 //		Caracteres que pueden estar en la contraseña
         String caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
@@ -72,7 +88,12 @@ public class Password {
        
         this.contraseña = contraseñaAleatoria.toString();
         this.longitud = longitud;
-        
     }
-
+	
+	public String imprimirPass() {
+        return "Password{" +
+                "contraseña='" + contraseña + '\'' +
+                ", longitud=" + longitud +
+                '}';
+    }
 }
