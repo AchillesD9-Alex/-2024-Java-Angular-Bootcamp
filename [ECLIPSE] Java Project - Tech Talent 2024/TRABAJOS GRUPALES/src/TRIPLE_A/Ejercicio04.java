@@ -12,8 +12,6 @@ public class Ejercicio04 {
         // Crear un arrayList que contenga todos los obejtoArticulos
         // Crear un objeto para (Articulo, precio, stock)
 
-        //
-
         HashMap<String, Integer> productoStock = new HashMap<>();
         productoStock.put("Leche", 100);
         productoStock.put("Pan", 150);
@@ -119,13 +117,13 @@ public class Ejercicio04 {
         botones.setLayout(new GridLayout(0, 4));
         botones.setBackground(Color.GRAY);
 
-        JButton anadir = new JButton(escalarImagen("ICONOS\\cart-plus.png"));
+        JButton anadir = new JButton(escalarImagen("Iconos\\cart-plus.png"));
         modificarBoton(anadir);
-        JButton comprar = new JButton(escalarImagen("ICONOS\\cart-check.png"));
+        JButton comprar = new JButton(escalarImagen("Iconos\\cart-check.png"));
         modificarBoton(comprar);
-        JButton lista = new JButton(escalarImagen("ICONOS\\list-task.png"));
+        JButton lista = new JButton(escalarImagen("Iconos\\list-task.png"));
         modificarBoton(lista);
-        JButton lupa = new JButton(escalarImagen("ICONOS\\search.png"));
+        JButton lupa = new JButton(escalarImagen("Iconos\\search.png"));
         modificarBoton(lupa);
 
         accionesAnadir(frame, anadir, productos, productosTXT, productoStock, productoPrecio);
@@ -160,9 +158,16 @@ public class Ejercicio04 {
         });
     }
 
+    
+    
+    
+    
+    
     public static void accionesAnadir(JFrame frame, JButton anadir, JPanel productos, StringBuilder productosTXT,
-            HashMap<String, Integer> productoStock,
+//      CAMBIAR HASMAP A OBJETO
+    		HashMap<String, Integer> productoStock,
             HashMap<String, Double> productoPrecio) {
+    	
         anadir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -178,7 +183,10 @@ public class Ejercicio04 {
                     int stock = Integer
                             .parseInt(JOptionPane.showInputDialog(null, "Ingrese la cantidad en stock:", "Stock",
                                     JOptionPane.PLAIN_MESSAGE));
+                    
+                    
                     // objeto.setTodo(articulo, precio, stock)
+//                  USAR METODO AÑADIR CON OBJETO
                     productoStock.put(producto, stock);
                     productoPrecio.put(producto, precio);
 
@@ -187,7 +195,9 @@ public class Ejercicio04 {
             }
         });
     }
-
+ 
+//  CAMBIAR productoPrecio (hashmap) a getNombre (objeto)
+    
     public static void accionesLupa(JButton lupa, HashMap<String, Double> productoPrecio) {
         lupa.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -196,8 +206,10 @@ public class Ejercicio04 {
                         null, JOptionPane.PLAIN_MESSAGE);
                 if (productoBuscado != null && !productoBuscado.isEmpty()) {
                     StringBuilder productosCoicidentes = new StringBuilder();
-                    for (String producto : productoPrecio.keySet()) { // Recorrer arraylist
-                        if (producto.toLowerCase().contains(productoBuscado.toLowerCase())) {
+                    
+                    for (String producto : productoPrecio.keySet()) { // Recorrer arraylist INVENTARIO en vez de Hashmap
+                        
+                    	if (producto.toLowerCase().contains(productoBuscado.toLowerCase())) {
                             double precio = productoPrecio.get(producto); // objeto.getPrecio
                             String precioFormateado = decimales.format(precio);
                             productosCoicidentes
@@ -215,18 +227,21 @@ public class Ejercicio04 {
         });
     }
 
+//    cambiar hasmap a object
     public static void accionesComprar(JFrame frame, JPanel productos, StringBuilder productosTXT,
             HashMap<String, Integer> productoStock, JButton comprar,
             HashMap<String, Double> productoPrecio) {
+    	
         DecimalFormat dosDecimales = new DecimalFormat("0.00");
         ArrayList<String> arrayProductos = new ArrayList<>();
         comprar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 arrayProductos.removeAll(arrayProductos);
-                for (String producto : productoStock.keySet()) { // Recorrer arraylist
+                for (String producto : productoStock.keySet()) { // productoStockt --> buscar en objeto (getNombre)
                     // objeto.getStock
-                    arrayProductos.add(producto);
+                    arrayProductos.add(producto); 
                 }
+//                cambiar metodos para pedir getPrecio
                 panelCrearTicket(arrayProductos, productoStock, productoPrecio, dosDecimales);
 
                 actualizarProductos(frame, productoStock, productoPrecio, productos, productosTXT);
@@ -236,8 +251,9 @@ public class Ejercicio04 {
 
     public static void panelCrearTicket(ArrayList<String> arrayProductos, HashMap<String, Integer> productoStock,
             HashMap<String, Double> productoPrecio, DecimalFormat dosDecimales) {
+//    	cambiar de hashmap a objeto
+    	
         StringBuilder texto = new StringBuilder("PRECIO DE LOS ARTICULOS\n");
-//        articulosApp articulos = new articulosApp();
         String producto = "";
         int cantidad = 0;
         int stockFinal = 0;
@@ -251,7 +267,7 @@ public class Ejercicio04 {
             JPanel infoArticulos = new JPanel(new GridLayout(0, 2));
 
             infoArticulos.add(new JLabel("Nombre del producto: "));
-            JComboBox<String> seleccionable = crearSeleccionable(arrayProductos);
+            JComboBox<String> seleccionable = crearSeleccionable(arrayProductos); //inventario
             infoArticulos.add(seleccionable);
 
             infoArticulos.add(new JLabel("Cantidad:"));
@@ -262,6 +278,7 @@ public class Ejercicio04 {
             JCheckBox masArticulosCheck = new JCheckBox();
             infoArticulos.add(masArticulosCheck);
 
+//          COGER IVA DE OBJETO
             infoArticulos.add(new JLabel("¿Artículo esencial?"));
             JCheckBox articuloEsencialCheck = new JCheckBox();
             infoArticulos.add(articuloEsencialCheck);
@@ -270,6 +287,7 @@ public class Ejercicio04 {
                 JOptionPane.showMessageDialog(null, infoArticulos, "Titulo", JOptionPane.PLAIN_MESSAGE);
 
                 masArticulos = masArticulosCheck.isSelected() ? true : false;
+//                iva
                 articuloEsencial = articuloEsencialCheck.isSelected() ? true : false;
 
                 producto = policiaProducto(seleccionable, producto);
@@ -280,7 +298,8 @@ public class Ejercicio04 {
                     if (cantidad == 0) {
                         error = true;
                     } else {
-                        int stockProducto = productoStock.get(producto);
+//                    	HASHMAP A OBJETO productoStock
+                        int stockProducto = productoStock.get(producto); 
                         stockFinal = revisorCantidades(productoStock, stockProducto, stockFinal, cantidad, producto);
                         if (stockFinal == 0) {
                             error = true;
@@ -291,12 +310,13 @@ public class Ejercicio04 {
                 }
             } while (error);
 
-            // objeto.reStock(articulo, nuevoStock) (crear el metodo)
+            // sobreescribir valor de Stock del producto
             productoStock.put(producto, stockFinal);
 
+            
+//    DIVIDIR METODO, coger estructura del StockProductos
+//            echar un vistiazo comrparando con el metodo de Alex
             precioIVA = precioArticuloConIva(productoPrecio, precioIVA, articuloEsencial, producto);
-
-//            articulos.setTodos(producto, cantidad, precioIVA);
 
             totalProducto = precioIVA * cantidad;
             String ivaFormateado = dosDecimales.format(totalProducto);
@@ -314,11 +334,12 @@ public class Ejercicio04 {
             }
 
             arrayProductos.remove(producto);
-        } while (masArticulos);
+        } while (masArticulos); //PENSAR SI CAMBIAR BOTON Y PONER POR DEFECTO SEGUIR COMPRANDO Y BOTON DE ULTIMO ART
         
         ticket(dosDecimales, texto, totalCompra);
     }
 
+//    ticket = imprimirResumenCompra
     public static void ticket(DecimalFormat dosDecimales, StringBuilder texto, double totalCompra) {
         String laMulta = dosDecimales.format(totalCompra);
         double losBilletes = Double
@@ -329,6 +350,7 @@ public class Ejercicio04 {
                 "Has pagado el precio de " + laMulta + " con " + losBilletes + "\nTus vueltas son ==> " + laCalderilla);
     }
 
+//  Desplegable, cambiar hashmap a objeto/inventario
     public static JComboBox<String> crearSeleccionable(ArrayList<String> arrayProductos) {
         String[] productos = new String[(arrayProductos.size() + 1)];
         productos[0] = "- Seleccionar producto -";
@@ -342,10 +364,11 @@ public class Ejercicio04 {
         return seleccionable;
     }
 
+//  Comprueba que se elige un producto
     public static String policiaProducto(JComboBox<String> seleccionable, String producto) {
         producto = (String) seleccionable.getSelectedItem();
 
-        if (seleccionable == null || producto.equals("- Seleccionar producto -")) {
+        if (producto.equals("- Seleccionar producto -")) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un producto.", "Error", JOptionPane.ERROR_MESSAGE);
             return "PRODUCTO NO VÁLIDO";
         } else {
@@ -353,6 +376,7 @@ public class Ejercicio04 {
         }
     }
 
+//  Comprueba que qty intro es un entero
     public static int policiaCantidad(JTextField cantidadTxt, int cantidad) {
         try {
             cantidad = Integer.parseInt(cantidadTxt.getText());
@@ -364,6 +388,8 @@ public class Ejercicio04 {
         }
     }
 
+//    Comprueba que qtyINTRO es igual o inferior a Stock
+//    Cambiar hashmap por objeto (getStock?)
     public static int revisorCantidades(HashMap<String, Integer> productoStock, int stockProducto, int stockFinal, int cantidad,
             String producto) {
         if (cantidad > stockProducto) {
@@ -376,6 +402,7 @@ public class Ejercicio04 {
         }
     }
 
+//  REVISAR VS metodos bruto/neto
     public static double precioArticuloConIva(HashMap<String, Double> productoPrecio, double precioIVA,
             boolean articuloEsencial, String producto) {
         double precio = 0.0;
@@ -394,15 +421,19 @@ public class Ejercicio04 {
         }
     }
 
+//  Cambiar hashmap a objeto
     public static void actualizarProductos(JFrame frame, HashMap<String, Integer> productoStock,
             HashMap<String, Double> productoPrecio, JPanel productos, StringBuilder productosTXT) {
 
         frame.setVisible(false);
         frame.setSize(1000, 1000);
+        //Eliminamos info anterior (guardada en el hashmap --> objeto) para evitar incomatibilidades
+        //con el formato del frame
         productos.removeAll();
         DecimalFormat decimales = new DecimalFormat("0.00");
         int i = 1;
         for (String producto : productoStock.keySet()) {
+        	//20 será el num max de arti en el panel para comprar
             if (i <= 20) {
                 double precio = productoPrecio.get(producto);
                 String precioFormateado = decimales.format(precio);
@@ -421,11 +452,12 @@ public class Ejercicio04 {
                 JOptionPane.showMessageDialog(null, "Has llegado al máximo de artículos posible");
             }
         }
+        //Realiplcar fomrato del frame
         productos.revalidate();
         productos.repaint();
-
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        
+        frame.pack(); //Comprime tamaño del frame (antes 1000x1000)
+        frame.setLocationRelativeTo(null); //Coloca el frame centrado en pantalla en uso
+        frame.setVisible(true); //Hace que el frame se genere y se pueda interactuar con el
     }
 }
