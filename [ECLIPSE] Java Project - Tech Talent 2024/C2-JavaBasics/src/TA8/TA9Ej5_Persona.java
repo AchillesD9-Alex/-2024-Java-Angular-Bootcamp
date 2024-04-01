@@ -2,7 +2,7 @@ package TA8;
 
 import javax.swing.JOptionPane;
 
-public class Persona {
+public class TA9Ej5_Persona {
 
 	// Atributos (o campos/propiedades)
 	private String nombre;
@@ -18,7 +18,7 @@ public class Persona {
     private static final char SEXO_MUJER = 'M';
     
 //	Constructor por defecto
-	public Persona() {
+	public TA9Ej5_Persona() {
 		this.nombre = "";
 		this.edad = 0;
 		this.DNI ="";
@@ -29,7 +29,7 @@ public class Persona {
 	}
 	 
 //	Para ejercicio de clase en MainApp
-	public Persona(String nombre, int edad, String ciudad) {
+	public TA9Ej5_Persona(String nombre, int edad, String ciudad) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.DNI ="";
@@ -40,7 +40,7 @@ public class Persona {
 	}
 	
 //	Constructor nombre, edad y sexo; resto por defecto
-	public Persona(String nombre, int edad, char sexo) {
+	public TA9Ej5_Persona(String nombre, int edad, char sexo) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.DNI ="";
@@ -51,7 +51,7 @@ public class Persona {
 	}
 
 //	Constructor todos los atributos como parámetro
-	public Persona(String nombre, int edad, String DNI, char sexo, double peso,
+	public TA9Ej5_Persona(String nombre, int edad, String DNI, char sexo, double peso,
 					double altura, String ciudad) {
 		this.nombre = nombre;
 		this.edad = edad;

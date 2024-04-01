@@ -5,7 +5,7 @@ public class MainApp {
 	public static void main(String[] args) {
 //		--- PERSONA ---
 //		Constructor 1: nombre, edad ciudad
-		Persona persona1 = new Persona("Ana", 25, "Barcelona");
+		TA9Ej5_Persona persona1 = new TA9Ej5_Persona("Ana", 25, "Barcelona");
 
 		System.out.println(persona1.getNombre()); // Imprime "Ana"
 		System.out.println(persona1.getEdad()); // Imprime 25
@@ -14,12 +14,12 @@ public class MainApp {
 		System.out.println(persona1.toString()); // Imprime "Persona{nombre='Ana', edad=25, ciudad='Valencia'}"
 
 //		Constructor 2: nombre, edad y sexo
-		Persona persona2 = new Persona("Paco", 30, "H");
+		TA9Ej5_Persona persona2 = new TA9Ej5_Persona("Paco", 30, "H");
 
 		System.out.println(persona1.getSexo()); // Imprime H
 		
 //	Constructor 3: todos los atributos por parámetos
-		Persona persona3 = new Persona("Pedro", 27, "45396532A", 'H', 89.7, 1.78, "Tortosa");
+		TA9Ej5_Persona persona3 = new TA9Ej5_Persona("Pedro", 27, "45396532A", 'H', 89.7, 1.78, "Tortosa");
 		System.out.println(persona3.imprimirPersona()+"\n");
 		
 //		--- PASSWORD ---

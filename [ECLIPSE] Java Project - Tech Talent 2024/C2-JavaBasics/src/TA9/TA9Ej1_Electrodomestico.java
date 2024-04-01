@@ -1,6 +1,6 @@
 package TA9;
 
-public class ElectrodomesticoTA9 {
+public class TA9Ej1_Electrodomestico {
 
 	// Atributos (o campos/propiedades)
 	protected double precioBase;
@@ -22,7 +22,7 @@ public class ElectrodomesticoTA9 {
 
     
 //	Constructor por defecto
-	public ElectrodomesticoTA9() {
+	public TA9Ej1_Electrodomestico() {
 		this.precioBase = precioBase_DEFAULT;
 		this.color = color_DEFAULT;
 		this.consumo = consumo_DEFAULT;
@@ -30,14 +30,14 @@ public class ElectrodomesticoTA9 {
 	}
 	
 //	Constructor precio+peso, resto defecto
-	public ElectrodomesticoTA9(double precio, int peso) {
+	public TA9Ej1_Electrodomestico(double precio, int peso) {
 		this();
 		this.precioBase = precio;
 		this.peso = peso;
 	}
 
 //	Constructor TODO
-	public ElectrodomesticoTA9(double precio, colorE color, consumoE consumo, int peso) {
+	public TA9Ej1_Electrodomestico(double precio, colorE color, consumoE consumo, int peso) {
 		this.precioBase = precio;
 		this.color = color;
 		this.consumo = consumo;
@@ -87,7 +87,7 @@ public class ElectrodomesticoTA9 {
                 '}';
     }
 	
-	public double precioFinal(consumoE consumo, int peso) {
+	public double precioFinal() {
 		
 		double precioConsumoTabla = 0;
 		switch (consumo){
@@ -126,6 +126,6 @@ public class ElectrodomesticoTA9 {
 		        System.out.println("Peso incorrecto. Introduce el valor entero más próximo.");
 		    }
 		
-		return precioConsumoTabla + precioPesoTabla;
+		return precioBase + precioConsumoTabla + precioPesoTabla;
 	}
 }
