@@ -23,7 +23,6 @@ public class TA9Ej5_Profesor extends TA9Ej5_Persona {
 	// 20% true 80% false
 	public boolean estaAusente() {
 		int random = (int) (Math.random() * 5);
-		//System.out.println("Profesor ausente: " + random);
 		return (random == 0);
 	}
 

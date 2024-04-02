@@ -1,5 +1,7 @@
 package TA9;
 
+import TA9.TA9Ej5_Sexo.Sexo;
+
 public class TA9Ej5_Alumno extends TA9Ej5_Persona {
 
 	private int nota;
@@ -25,15 +27,15 @@ public class TA9Ej5_Alumno extends TA9Ej5_Persona {
 		this.nota = generarNota();
 	}
 
+//	Entre 0 y 10 incluidos
 	public int generarNota() {
-		return (int) (1 + Math.random() * 10);
+		return (int) (Math.random() * 11);
 	}
 
 	@Override
 	// 50% true 50% false
 	public boolean estaAusente() {
 		int random = (int) (Math.random() * 2);
-		//System.out.println("Alumno ausente: " + random);
 		return (random == 0);
 	}
 

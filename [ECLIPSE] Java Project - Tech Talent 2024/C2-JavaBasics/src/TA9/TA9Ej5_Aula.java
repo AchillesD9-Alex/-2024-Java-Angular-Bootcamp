@@ -50,12 +50,14 @@ public class TA9Ej5_Aula {
 				count++;
 			}
 		}
-		// System.out.println("cuenta " + count);
-		return (count < (this.alumnos.length / 2));
+		System.out.println("Hay "+ count +" alumnos ausentes de " + this.alumnos.length);
+		
+	return (count < (this.alumnos.length / 2));
 	}
 
 	public void entregarNotas() {
 		if (darClase()) {
+			System.out.println("La cantidad de alumnos permite dar clase");
 			int hombresAprobados = 0, mujeresAprobadas = 0;
 			for (int i = 0; i < this.alumnos.length; i++) {
 				if (this.alumnos[i].getSexo() == Sexo.H) {
@@ -68,8 +70,6 @@ public class TA9Ej5_Aula {
 					}
 				}
 
-				// System.out.println(this.alumnos[i].getNombre() + ": " +
-				// this.alumnos[i].getNota());
 			}
 			System.out.println("Hombres aprobados: " + hombresAprobados);
 			System.out.println("Mujeres aprobadas: " + mujeresAprobadas + "\n");
