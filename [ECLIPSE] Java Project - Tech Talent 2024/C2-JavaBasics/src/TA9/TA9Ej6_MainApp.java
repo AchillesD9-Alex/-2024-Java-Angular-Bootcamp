@@ -81,15 +81,31 @@ public class TA9Ej6_MainApp {
 		}
 	}
 
-	public static boolean puedeSentarse(TA9Ej6_Espectador e, TA9Ej6_Cine c, TA9Ej6_Peliculas p, TA9Ej6_Butaca[][] a) {
+	public static boolean puedeSentarse(TA9Ej6_Espectador e, TA9Ej6_Cine c,
+											TA9Ej6_Peliculas p, TA9Ej6_Butaca[][] a) {
+/* Queria contabilizar las personas que no podian asistir según su casuística,
+ * pero como el metodo es individual no puedo realizarlo... debería separar los metodos
+ * para poder utilizar los conatadores.
+ */
+		
+//		int sinDinero = 0;
+//		int sinEdad = 0;
+//		int sinAmbas = 0;
 		if(tieneDinero(e, c) == false) {
 			System.out.println(e.getNombre() + " no tiene suficiente dinero.");
+//			sinDinero++;
 		}else if(tieneEdad(p, e) == false){
 			System.out.println(e.getNombre() + " no tiene suficiente edad.");
+//			sinEdad++;
 		}else if (tieneDinero(e, c) == false && tieneEdad(p, e) == false) {
 			System.out.println(e.getNombre() + " no tiene suficiente dinero ni edad.");
+//			sinAmbas++;
 		}
-		
+//		System.out.println("\nHay un total de "+(sinDinero+sinEdad+sinAmbas)+" personas"
+//								+ " que no van a poder asistir a la pelicula.");
+//		System.out.println("De estas, " +sinDinero+" es por falta de dinero."+
+//								"\n"+sinEdad+ " no tienen edad suficiente."+
+//								"\n"+sinAmbas+ " no tienen dinero ni edad suficiente.");
 		return ((tieneDinero(e, c)) && (tieneEdad(p, e)));
 	}
 
