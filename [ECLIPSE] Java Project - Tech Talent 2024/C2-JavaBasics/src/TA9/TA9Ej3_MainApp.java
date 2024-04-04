@@ -11,7 +11,8 @@ public class TA9Ej3_MainApp {
 		System.out.println(libro1.toString());
 		System.out.println(libro2.toString());
 
-		System.out.println("\nEl libro con más páginas:\n" + libro1.compararPaginas(libro2).toString());
+		System.out.println("\nEl libro con más páginas:\n"
+						+ libro1.compararPaginas(libro2).toString());
 	}
 	
 }

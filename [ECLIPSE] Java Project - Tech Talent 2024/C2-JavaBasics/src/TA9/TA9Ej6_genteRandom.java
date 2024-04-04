@@ -1,7 +1,7 @@
 package TA9;
 
 // 8*9 = 72 POSIBLES PLAZAS MAX
-public enum genteRandom {
+public enum TA9Ej6_genteRandom {
     Maria,
     Jose,
     Carmen,

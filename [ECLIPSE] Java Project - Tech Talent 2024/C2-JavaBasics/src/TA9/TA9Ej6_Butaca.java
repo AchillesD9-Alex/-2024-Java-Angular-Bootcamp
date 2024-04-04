@@ -12,7 +12,8 @@ public class TA9Ej6_Butaca {
 		this.ocupada = false;
 	}
 
-	public TA9Ej6_Butaca(int fila, char columna, boolean ocupada) {
+	public TA9Ej6_Butaca(int fila, char columna,
+				boolean ocupada) {
 		this.fila = fila;
 		this.columna = columna;
 		this.ocupada = ocupada;

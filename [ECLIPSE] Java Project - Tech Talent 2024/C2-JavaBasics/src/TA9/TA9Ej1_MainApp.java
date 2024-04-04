@@ -7,8 +7,8 @@ public class TA9Ej1_MainApp {
 		TA9Ej1_Electrodomestico arrayE[]= new TA9Ej1_Electrodomestico [10]; 
 		
 //		--- ELECTRODOMESTICOS ---
-		TA9Ej1_Electrodomestico elec1 = new TA9Ej1_Electrodomestico (800, TA9Ej1_Electrodomestico.colorE.NEGRO,
-				TA9Ej1_Electrodomestico.consumoE.A, 50);
+		TA9Ej1_Electrodomestico elec1 = new TA9Ej1_Electrodomestico (800,
+				TA9Ej1_Electrodomestico.colorE.NEGRO, TA9Ej1_Electrodomestico.consumoE.A, 50);
 			System.out.println(elec1.ElectrodomesticoTA9_toString()+"\n");
 			arrayE[0] = elec1;
 		

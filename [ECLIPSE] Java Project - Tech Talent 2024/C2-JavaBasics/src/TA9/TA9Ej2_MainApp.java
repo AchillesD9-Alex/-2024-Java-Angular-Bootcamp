@@ -8,13 +8,15 @@ public class TA9Ej2_MainApp {
 		TA9Ej2_Videojuego[] videojuegos = new TA9Ej2_Videojuego[5];
 		
 //		Agregamos las series y los videojuegos: 
-		series[0] = new TA9Ej2_Serie("Doctor Who", 26, "Ciencia ficción", "Sydney Newman, C. E. Webber, Donald Wilson");
+		series[0] = new TA9Ej2_Serie("Doctor Who", 26, "Ciencia ficción",
+								"Sydney Newman, C. E. Webber, Donald Wilson");
 		series[1] = new TA9Ej2_Serie("Jessica Jones", 2, "Drama", "Melissa Rosenberg");
 		series[2] = new TA9Ej2_Serie("Juego de Tronos", 8, "Fantasía", "David Benioff, D. B. Weiss");
 		series[3] = new TA9Ej2_Serie("Misfits", 5, "Drama", "Howard Overman");
 		series[4] = new TA9Ej2_Serie("Heroes", 3, "Ciencia ficción", "Tim Kring");
 
-		videojuegos[0] = new TA9Ej2_Videojuego("Genshin Impact", 80, "RPG /Mundo abierto", "Hoyoverse");
+		videojuegos[0] = new TA9Ej2_Videojuego("Genshin Impact", 80,
+											"RPG /Mundo abierto", "Hoyoverse");
 		videojuegos[1] = new TA9Ej2_Videojuego("Honkai Star Rail", 50, "RPG /Combate por turnos", "Hoyoverse");
 		videojuegos[2] = new TA9Ej2_Videojuego("Honkai Impact 3rd", 100, "RPG de acción", "Hoyoverse");
 		videojuegos[3] = new TA9Ej2_Videojuego("Final Fantasy XIII", 50, "RPG /Combate por turnos", "Square Enix");
@@ -35,10 +37,12 @@ public class TA9Ej2_MainApp {
 			System.out.println("Total de VIDEOJUEGOS entregados: " + videojuegosEntregados);
 
 		TA9Ej2_Videojuego videojuegoMasHoras = obtenerVideojuegoMasHoras(videojuegos);
-			System.out.println("\nEl videojuego con más horas estimadas es: \n" + videojuegoMasHoras);
+			System.out.println("\nEl videojuego con más horas estimadas es:"
+								+ "\n" +videojuegoMasHoras);
 			
 		TA9Ej2_Serie serieMasTemporadas = obtenerSerieMasTemporadas(series);
-			System.out.println("\nLa serie con más temporadas es: \n" + serieMasTemporadas);
+			System.out.println("\nLa serie con más temporadas es:"
+								+ "\n" + serieMasTemporadas);
 	}
 
 //	--- METODOS ---

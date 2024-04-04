@@ -18,7 +18,7 @@ public class TA9Ej6_Espectador {
 	
 	public void generarTA9Ej6_EspectadorRandom() {
 		
-		genteRandom[] nombres = genteRandom.values();
+		TA9Ej6_genteRandom[] nombres = TA9Ej6_genteRandom.values();
 		int random = (int) (Math.random() * nombres.length);
 		this.nombre = nombres[random].toString();
 		

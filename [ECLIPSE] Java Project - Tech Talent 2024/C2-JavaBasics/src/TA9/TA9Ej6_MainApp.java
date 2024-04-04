@@ -28,7 +28,8 @@ public class TA9Ej6_MainApp {
 		sc.close();
 	}
 
-	public static void sentarTA9Ej6_Espectadores(TA9Ej6_Espectador[] espectadores, int capacidad, TA9Ej6_Cine c, TA9Ej6_Butaca[][] asientos, TA9Ej6_Peliculas p) {
+	public static void sentarTA9Ej6_Espectadores(TA9Ej6_Espectador[] espectadores,
+			int capacidad, TA9Ej6_Cine c, TA9Ej6_Butaca[][] asientos,TA9Ej6_Peliculas p) {
 		int count = 0;
 		//Mientras queden espectadores por asignarle un asiento
 		while (count < espectadores.length && hayEspacio(asientos)) {

@@ -14,7 +14,8 @@ public class TA9Ej6_Peliculas {
 		this.director = "director";
 	}
 
-	public TA9Ej6_Peliculas(String titulo, int duracion, int edadMinima, String director) {
+	public TA9Ej6_Peliculas(String titulo, int duracion,
+			int edadMinima, String director) {
 		this.titulo = titulo;
 		this.duracion = duracion;
 		this.edadMinima = edadMinima;

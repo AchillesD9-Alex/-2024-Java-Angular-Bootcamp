@@ -24,7 +24,8 @@ public class TA9Ej2_Serie implements TA9Ej2_Entregable {
 	    }
 
 	    // Constructor con todos los atributos excepto entregado
-	    public TA9Ej2_Serie(String titulo, int numeroTemporadas, String genero, String creador) {
+	    public TA9Ej2_Serie(String titulo, int numeroTemporadas,
+	    						String genero, String creador) {
 	        this();
 	    	this.titulo = titulo;
 	        this.numeroTemporadas = numeroTemporadas;

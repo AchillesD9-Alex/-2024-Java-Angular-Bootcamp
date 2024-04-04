@@ -9,7 +9,6 @@ public class TA9Ej2_Videojuego implements TA9Ej2_Entregable{
     private String company;
 
     
-    
     // Constructor por defecto
     public TA9Ej2_Videojuego() {
         this.horasEstimadas = 10;
@@ -26,7 +25,8 @@ public class TA9Ej2_Videojuego implements TA9Ej2_Entregable{
     }
 
     // Constructor con todos los atributos excepto entregado
-    public TA9Ej2_Videojuego(String titulo, int horasEstimadas, String genero, String company) {
+    public TA9Ej2_Videojuego(String titulo, int horasEstimadas,
+    							String genero, String company) {
         this();
     	this.titulo = titulo;
         this.horasEstimadas = horasEstimadas;

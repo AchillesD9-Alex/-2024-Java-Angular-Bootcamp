@@ -24,7 +24,8 @@ public class TA9Ej1_Television extends TA9Ej1_Electrodomestico{
 	}
 
 //	Constructor TODO
-	public TA9Ej1_Television(double precioBase, colorE color, consumoE consumo, int peso, int resolucion) {
+	public TA9Ej1_Television(double precioBase, colorE color,
+					consumoE consumo, int peso, int resolucion) {
 		super(precioBase, color, consumo, peso);
 		this.resolucion = resolucion;
 	}
@@ -44,7 +45,7 @@ public class TA9Ej1_Television extends TA9Ej1_Electrodomestico{
         return "TV {" +
                 "precio = " + precioBase +
                 ", color = " + color +
-                ", consumo = '" + consumo + + '\'' +
+                ", consumo = '" + consumo + '\'' +
                  ", peso = " + peso +
                 '}';
     }

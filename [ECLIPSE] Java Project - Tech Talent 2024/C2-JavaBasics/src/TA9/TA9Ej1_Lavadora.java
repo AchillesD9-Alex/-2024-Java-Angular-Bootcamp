@@ -22,7 +22,8 @@ public class TA9Ej1_Lavadora extends TA9Ej1_Electrodomestico{
 	}
 
 //	Constructor TODO
-	public TA9Ej1_Lavadora(double precioBase, colorE color, consumoE consumo, int peso, int carga) {
+	public TA9Ej1_Lavadora(double precioBase, colorE color, consumoE consumo,
+							int peso, int carga) {
 		super(precioBase, color, consumo, peso);
 		this.carga = carga;
 	}

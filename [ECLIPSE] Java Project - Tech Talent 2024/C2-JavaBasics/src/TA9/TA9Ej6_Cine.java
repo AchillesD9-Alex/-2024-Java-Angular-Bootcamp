@@ -14,7 +14,8 @@ public class TA9Ej6_Cine {
 		this.columnas = 8;
 	}
 
-	public TA9Ej6_Cine(TA9Ej6_Peliculas pelicula, double precio, int filas, int columnas) {
+	public TA9Ej6_Cine(TA9Ej6_Peliculas pelicula, double precio,
+								int filas, int columnas) {
 		this.pelicula = pelicula;
 		this.precio = precio;
 		this.filas = filas;
