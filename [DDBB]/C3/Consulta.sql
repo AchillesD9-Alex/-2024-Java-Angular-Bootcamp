@@ -1,0 +1,4 @@
+CREATE TABLE personas (id INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR (40),
+fecha DATE);
+
