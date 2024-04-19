@@ -2,7 +2,7 @@ INSERT INTO despachos (capacidad) VALUES
 (3),(8),(7),(6),(4),(1),(2),(9),(5),(12);
 
 INSERT INTO directores (dni, nom_apels, dni_jefe, num_despacho) VALUES
-('12345', 'Socorro Ruiz, Aurora', NULL, '1'), 
+('12345', 'Román Díaz, Alexandre', NULL, '1'), 
 ('22345', 'Sanchez, Pedro', NULL, '2'), 
 ('32345', 'Rajoy, Mariano', NULL, '3'), 
 ('42345', 'Swift, Taylor', NULL, '4'), 
