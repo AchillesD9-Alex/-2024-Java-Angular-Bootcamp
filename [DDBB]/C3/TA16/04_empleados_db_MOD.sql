@@ -28,11 +28,11 @@ SELECT apellidos FROM empleados;
 -- Obtener los apellidos de los empleados sin repeticiones
 SELECT DISTINCT apellidos FROM empleados;
 
--- Obtener todos los datos de los empleados que se apellidan 'López'
-SELECT * FROM empleados WHERE apellidos = 'López';
+-- Obtener todos los datos de los empleados que se apellidan 'López' (usamos LIKE '%string%' porque tengo 2 apellidos en la columna de apellidos; asi busco la cadena 'López' en la cadena 'Apellido1 Apellido2'; si Apellido1 o Apellido2 = la cadena buscada, aparecerá en la consulta).
+SELECT * FROM empleados WHERE apellidos LIKE '%López%';
 
 -- Obtener todos los datos de los empleados que se apellidan 'López' y 'Pérez'
-SELECT * FROM empleados WHERE apellidos IN ('López', 'Pérez');
+SELECT * FROM empleados WHERE apellidos LIKE '%López%' OR apellidos LIKE '%Pérez%';
 
 -- Obtener todos los datos de los empleados que trabajan para el departamento 4
 SELECT * FROM empleados WHERE cod_departamento = 4;
