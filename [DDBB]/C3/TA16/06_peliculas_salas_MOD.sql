@@ -11,16 +11,17 @@ INSERT INTO peliculas (cod_pelicula, nombre, cal_edad) VALUES
 (10, 'Licorice Pizza', 12);
 
 INSERT INTO salas (cod_sala, nombre, cod_pelicula) VALUES
-('SALA1', 'Sala 1', 1),
-('SALA2', 'Sala 2', 2),
-('SALA3', 'Sala 3', 3),
-('SALA4', 'Sala 4', 4),
-('SALA5', 'Sala 5', 5),
-('SALA6', 'Sala 6', 6),
-('SALA7', 'Sala 7', 7),
-('SALA8', 'Sala 8', 8),
-('SALA9', 'Sala 9', 9),
-('SALA10', 'Sala 10', 10);
+('S01', 'Sala de Estreno', 1),
+('S02', 'Sala de Aventuras', 2),
+('S03', 'Sala de Ciencia Ficción', 3),
+('S04', 'Sala de Animación', 4),
+('S05', 'Sala de Comedia', 5),
+('S06', 'Sala de Terror', 6),
+('S07', 'Sala de Suspenso', 7),
+('S08', 'Sala de Acción', 8),
+('S09', 'Sala de Drama', 9),
+('S10', 'Sala de Romance', 10);
+
 
 -- 1) Mostrar el nombre de todas las películas
 SELECT nombre FROM peliculas;

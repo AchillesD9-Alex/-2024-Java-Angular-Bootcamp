@@ -1,26 +1,28 @@
 INSERT INTO almacenes (cod_almacen, lugar, capacidad) VALUES
-(1, 'Almacén Central', 1500),
-(2, 'Almacén Norte', 1200),
-(3, 'Almacén Sur', 1000),
-(4, 'Almacén Este', 800),
-(5, 'Almacén Oeste', 2000),
-(6, 'Almacén Principal', 1800),
-(7, 'Almacén Secundario', 1300),
-(8, 'Almacén de Reserva', 900),
-(9, 'Almacén de Emergencia', 1100),
-(10, 'Almacén de Excedentes', 1600);
+(1, 'Barcelona', 500),
+(2, 'Bilbao', 400),
+(3, 'Madrid', 600),
+(4, 'Valencia', 450),
+(5, 'Sevilla', 550),
+(6, 'Zaragoza', 480),
+(7, 'Málaga', 520),
+(8, 'Murcia', 470),
+(9, 'Palma de Mallorca', 420),
+(10, 'Las Palmas de Gran Canaria', 380);
+
 
 INSERT INTO cajas (num_referencia, contenido, valor, cod_almacen) VALUES
-('CA001', 'Documentos', 100, 1),
-('CA002', 'Productos electrónicos', 800, 2),
-('CA003', 'Material de oficina', 50, 3),
-('CA004', 'Ropa', 200, 4),
-('CA005', 'Herramientas', 300, 5),
-('CA006', 'Juguetes', 150, 6),
-('CA007', 'Libros', 80, 7),
-('CA008', 'Productos de limpieza', 70, 8),
-('CA009', 'Alimentos no perecederos', 120, 9),
-('CA010', 'Artículos deportivos', 250, 10);
+('A0001', 'Libros', 50, 1),
+('B0002', 'Electrónica', 120, 2),
+('C0003', 'Ropa', 80, 3),
+('D0004', 'Herramientas', 150, 4),
+('E0005', 'Juguetes', 70, 5),
+('F0006', 'Alimentos', 90, 6),
+('G0007', 'Artículos de hogar', 110, 7),
+('H0008', 'Cosméticos', 100, 8),
+('I0009', 'Equipamiento deportivo', 130, 9),
+('J0010', 'Muebles', 160, 10);
+
 
 -- 1) Obtener todos los almacenes
 SELECT * FROM almacenes;
