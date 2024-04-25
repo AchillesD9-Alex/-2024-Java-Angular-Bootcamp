@@ -1,56 +1,71 @@
-INSERT INTO proveedores (id_proveedor, nombre_prov) VALUES 
-(1, 'Microsoft'),
-(2, 'Apple'),
-(3, 'LG'),
-(4, 'Lenovo'),
-(5, 'Xiaomi');
-(6, 'Distribuidora de Lácteos S.A.'),
-(7, 'Panadería Hermanos García'),
-(8, 'Frutas y Verduras Frescas SL');
-
-INSERT INTO facturas (id_factura, descripcion, fecha_factura) VALUES 
-('F001', 'Compra de productos de electrónica', '2024-04-25'),
-('F002', 'Compra de suministros de oficina', '2024-04-26'),
-('F003', 'Compra de mobiliario', '2024-04-27'),
-('F004', 'Compra de productos de limpieza', '2024-04-28'),
-('F005', 'Compra de herramientas', '2024-04-29');
-
-INSERT INTO productos (id_producto, nom_prod, qty_producto, bruto, tipo_prod) VALUES 
-('1', 'Portátil HP EliteBook', 50, 1200.00, 'N'),
-('2', 'Monitor Dell 27"', 100, 299.99, 'N'),
-('3', 'Silla ergonómica', 30, 199.99, 'N'),
-('4', 'Impresora multifunción Epson', 40, 199.00, 'N'),
-('5', 'Teclado inalámbrico Logitech', 80, 49.99, 'N');
-('6', 'Café gourmet', 80, 5.00, 'N'),  -- No esencial
-('7', 'Yogur natural', 120, 0.80, 'E'),  -- Esencial
-('8', 'Galletas de chocolate', 100, 1.50, 'N'),
-
-INSERT INTO clientes (id_cliente, nombre, apel1, apel2, DNI, fecha_nacimiento, telefono, mail) VALUES 
-('C001', 'María', 'González', 'López', '12345678A', '1990-03-15', 987654321, 'maria@example.com'),
-('C002', 'Carlos', 'Martínez', 'Ruiz', '23456789B', '1985-07-20', 654987321, 'carlos@example.com'),
-('C003', 'Laura', 'Sánchez', 'García', '34567890C', '2000-01-05', 789654123, 'laura@example.com'),
-('C004', 'Javier', 'Fernández', 'Díaz', '45678901D', '1978-11-28', 456123789, 'javier@example.com'),
-('C005', 'Ana', 'Pérez', 'Martín', '56789012E', '1982-09-10', 321456987, 'ana@example.com');
-
--- Insertar datos en la tabla de pedidos
-INSERT INTO pedidos (id_pedido, qty_prod_pedido, bruto, IVA, neto, tipo_pago, pago_realizado, devolucion, id_cliente)
+INSERT INTO proveedores (nombre_proveedor)
 VALUES 
-('P001', 2, 500.00, 21.00, 605.00, 'E', 605.00, 0.00, 'C001'),
-('P002', 3, 1000.00, 21.00, 1263.00, 'T', 1263.00, 0.00, 'C002'),
-('P003', 1, 200.00, 21.00, 242.00, 'E', 242.00, 0.00, 'C003'),
-('P004', 4, 800.00, 21.00, 1012.00, 'T', 1012.00, 0.00, 'C004'),
-('P005', 2, 600.00, 21.00, 726.00, 'E', 726.00, 0.00, 'C005');
+    ('Distribuidora Alfa'),
+    ('Comercial Beta'),
+    ('Suministros Gamma'),
+    ('Proveedora Delta'),
+    ('Importadora Epsilon');
 
--- Insertar datos en la tabla de incluir (relacionada con pedidos)
-INSERT INTO incluir (id_pedido, nom_prod, qty_prod_pedido)
+
+INSERT INTO productos (id_producto, nom_prod, qty_producto, bruto_prod, tipo_prod, IVA, neto_prod)
 VALUES 
-('P001', 'Portátil HP EliteBook', 1),
-('P001', 'Monitor Dell 27"', 1),
-('P002', 'Silla ergonómica', 2),
-('P002', 'Impresora multifunción Epson', 1),
-('P003', 'Teclado inalámbrico Logitech', 1),
-('P004', 'Portátil HP EliteBook', 2),
-('P004', 'Silla ergonómica', 1),
-('P004', 'Teclado inalámbrico Logitech', 1),
-('P005', 'Monitor Dell 27"', 2);
+    ('1', 'Leche', 100, 0.80, 'E', 4.00, 0.83),
+    ('2', 'Pan', 150, 1.20, 'E', 4.00, 1.25),
+    ('3', 'Manzana', 200, 0.25, 'E', 4.00, 0.26),
+    ('4', 'Pollo', 80, 3.50, 'E', 4.00, 3.64),
+    ('5', 'Arroz', 120, 1.50, 'E', 4.00, 1.56),
+    ('6', 'Televisor', 20, 199.99, 'N', 21.00, 242.99),
+    ('7', 'Zapatillas deportivas', 30, 29.99, 'N', 21.00, 36.29),
+    ('8', 'Mesa de comedor', 10, 89.99, 'N', 21.00, 109.19),
+    ('9', 'Aspiradora', 15, 49.99, 'N', 21.00, 60.49),
+    ('10', 'Maleta de viaje', 25, 39.99, 'N', 21.00, 48.39);
+
+
+INSERT INTO facturas (id_factura, linea_factura, id_producto, qty_suministro, coste_prod_suministro, descripcion, fecha_factura)
+VALUES 
+    ('A', 1, '1', 50, 40.00, 'Lácteos', '2024-04-01'), -- Leche
+    ('A', 2, '3', 20, 5.00, 'Frutas', '2024-04-01'), -- Manzana
+    ('B', 1, '7', 10, 299.90, 'Calzado', '2024-04-02'), -- Zapatillas deportivas
+    ('C', 1, '8', 5, 44.95, 'Muebles', '2024-04-03'), -- Mesa de comedor
+    ('C', 2, '9', 10, 499.90, 'Electrodoméstico', '2024-04-03'), -- Aspiradora
+    ('D', 1, '2', 15, 18.75, 'Panadería', '2024-04-04'), -- Pan
+    ('D', 2, '5', 50, 75.00, 'Cereal', '2024-04-04'), -- Arroz
+    ('D', 3, '10', 8, 319.92, 'Viaje', '2024-04-04'), -- Maleta de viaje
+    ('D', 4, '6', 3, 599.97, 'Electrónica', '2024-04-04'); -- Televisor
+
+
+INSERT INTO suministrar (id_factura, id_proveedor)
+VALUES 
+    ('A', 1), -- Proveedor 1 suministra a la factura A
+    ('B', 2), -- Proveedor 2 suministra a la factura B
+    ('C', 3); -- Proveedor 3 suministra a la factura C
+
+
+INSERT INTO clientes (id_cliente, nombre, apel1, apel2, DNI, fecha_nacimiento, telefono, mail)
+VALUES 
+    ('C001', 'Juan', 'García', 'Pérez', '12345678A', '1990-05-15', 666555444, 'juan@gmail.com'),
+    ('C002', 'María', 'Martínez', 'López', '87654321B', '1985-10-20', 611223344, 'maria@hotmail.com'),
+    ('C003', 'Pedro', 'Fernández', 'Gómez', '56781234C', '1988-03-25', 688999000, 'pedro@yahoo.com'),
+    ('C004', 'Laura', 'Rodríguez', 'Sánchez', '43218765D', '1992-07-12', 655667788, 'laura@gmail.com'),
+    ('C005', 'Ana', 'López', 'Martín', '34567812E', '1979-12-05', 677889900, 'ana@hotmail.com');
+
+INSERT INTO pedidos (id_pedido, coste_compra_bruto, coste_compra_neto, pago_realizado, devolución, id_cliente, fecha_pedido)
+VALUES 
+    ('PE01', 7.60, 7.90, 20.00, 12.40, 'C001', '2024-04-01'), -- Pedido 1
+    ('PE02', 9.50, 9.88, 12.00, 2.50, 'C002', '2024-03-28'), -- Pedido 2
+    ('PE03', 211.99, 255.47, 300.00, 88.01, 'C003', '2024-03-25'), -- Pedido 3
+    ('PE04', 299.94, 361.52, 400.00, 38.48, 'C004', '2024-03-20'); -- Pedido 4
+
+INSERT INTO incluir (id_pedido, linea_pedido, id_producto, qty_prod_pedido) VALUES
+    ('PE01', 1, '1', 5),  -- Pedido P001: Leche
+    ('PE01', 2, '2', 3),  -- Pedido P001: Pan
+    ('PE02', 1, '3', 10), -- Pedido P002: Manzana
+    ('PE02', 2, '4', 2),  -- Pedido P002: Pollo
+    ('PE03', 1, '5', 8),  -- Pedido P003: Arroz
+    ('PE03', 2, '6', 1),  -- Pedido P003: Televisor
+    ('PE04', 1, '7', 4),  -- Pedido P004: Zapatillas deportivas
+    ('PE04', 2, '8', 2);  -- Pedido P004: Mesa de comedor
+
+
+
 
