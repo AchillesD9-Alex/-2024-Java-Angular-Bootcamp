@@ -23,10 +23,10 @@ INSERT INTO salas (cod_sala, nombre, cod_pelicula) VALUES
 ('S10', 'Sala de Romance', 10);
 
 
--- 1) Mostrar el nombre de todas las películas
+-- 4.1) Mostrar el nombre de todas las películas
 SELECT nombre FROM peliculas;
 
--- 2) Mostrar las distintas calificaciones de edad que existen
+-- 4.2) Mostrar las distintas calificaciones de edad que existen
 SELECT DISTINCT cal_edad FROM peliculas;
 
 -- 3) Mostrar todas las películas que no han sido calificadas

@@ -64,22 +64,24 @@ FROM articulos AS a
 INNER JOIN fabricantes AS f ON a.cod_fabricantes = f.cod_fabricantes;
 
 -- 12) Obtener el precio medio de los productos de cada fabricante, mostrando solo los códigos del fabricante
-SELECT cod_fabricantes, AVG(precio) AS precio_medio
+SELECT cod_fabricantes, AVG(precio) AS precio_medioaa
 FROM articulos
 GROUP BY cod_fabricantes;
 
 -- 13) Obtener el precio medio de los productos de cada fabricante, mostrando el nombre del fabricante
-SELECT f.nombre AS nombre_fabricante, AVG(a.precio) AS precio_medio
+SELECT f.nombre AS nombre_fabricante, ROUND(AVG(a.precio)) AS precio_medio
 FROM articulos AS a
 INNER JOIN fabricantes AS f ON a.cod_fabricantes = f.cod_fabricantes
 GROUP BY f.nombre;
 
 -- 14) Obtener los nombres de los fabricantes que ofrezcan productos cuyo precio medio sea mayor o igual a 150
-SELECT f.nombre
-FROM articulos AS a
-INNER JOIN fabricantes AS f ON a.cod_fabricantes = f.cod_fabricantes
+SELECT f.nombre as "Fabricantes AVG(a.precio) >= 150", ROUND(AVG(a.precio),2) AS "Precio Medio"
+                    -- para saber qué lista es y poder comprobarla
+FROM articulos a INNER JOIN fabricantes f
+ON a.cod_fabricantes = f.cod_fabricantes
 GROUP BY f.nombre
-HAVING AVG(a.precio) >= 150;
+HAVING AVG(a.precio) >= 150
+ORDER BY AVG(a.precio);
 
 -- 15) Obtener el nombre y precio del artículo más barato
 SELECT nombre, precio

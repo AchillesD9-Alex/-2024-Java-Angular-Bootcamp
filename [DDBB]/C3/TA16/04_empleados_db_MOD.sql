@@ -61,8 +61,8 @@ JOIN departamentos AS d ON e.cod_departamento = d.cod_departamento;
 
 -- Obtener los nombres y apellidos de los empleados que trabajen en departamentos cuyo presupuesto sea mayor a 12.000€
 SELECT e.nombre, e.apellidos 
-FROM empleados AS e 
-JOIN departamentos AS d ON e.cod_departamento = d.cod_departamento 
+FROM empleados e 
+JOIN departamentos d ON e.cod_departamento = d.cod_departamento 
 WHERE d.presupuesto > 12000;
 
 -- Obtener los datos de los departamentos cuyo presupuesto es superior al presupuesto medio de todos los departamentos
@@ -72,8 +72,8 @@ WHERE presupuesto > (SELECT AVG(presupuesto) FROM departamentos);
 
 -- Obtener los nombres (únicamente los nombres) de los departamentos que tienen más de 2 empleados
 SELECT d.nombre 
-FROM empleados AS e 
-JOIN departamentos AS d ON e.cod_departamento = d.cod_departamento 
+FROM empleados e 
+JOIN departamentos d ON e.cod_departamento = d.cod_departamento 
 GROUP BY d.nombre 
 HAVING COUNT(*) > 2;
 
@@ -95,5 +95,5 @@ DELETE FROM empleados WHERE cod_departamento = 5;
 -- Despedir a todos los empleados que trabajen para departamentos cuyo presupuesto sea superior a los 15.000€
 DELETE FROM empleados WHERE cod_departamento IN (SELECT cod_departamento FROM departamentos WHERE presupuesto > 15000);
 
--- Despedir a todos los empleados
+-- 2.20 Despedir a todos los empleados
 DELETE FROM empleados;

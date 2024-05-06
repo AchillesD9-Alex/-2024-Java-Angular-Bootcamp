@@ -34,10 +34,10 @@ SELECT * FROM cajas WHERE valor > 150;
 SELECT DISTINCT contenido FROM cajas;
 
 -- 4) Obtener el valor medio de todas las cajas
-SELECT AVG(valor) AS valor_medio FROM cajas;
+SELECT ROUND(AVG(valor),2) AS "Valor promedio" FROM cajas;
 
 -- 5) Obtener el valor medio de las cajas de cada almacén
-SELECT cod_almacen, AVG(valor) AS valor_medio
+SELECT cod_almacen, ROUND(AVG(valor),2) AS "Valor medio cajas"
 FROM cajas
 GROUP BY cod_almacen;
 
