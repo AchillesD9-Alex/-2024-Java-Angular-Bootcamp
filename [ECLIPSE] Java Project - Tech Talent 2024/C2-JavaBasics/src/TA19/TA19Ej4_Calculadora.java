@@ -42,17 +42,12 @@ public class TA19Ej4_Calculadora extends JFrame {
 //		
 		panel.add(textOP2);
 
-//      BOTON CALCULAR
-		JButton botonAñadir = new JButton("Calcular");
-		botonAñadir.setBounds(125, 110, 150, 25);
-		panel.add(botonAñadir);
-
-		// Agregar ActionListener a CALCULAR
-		botonAñadir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			
-			}
-		});
+//		Agregar un JLabel para mostrar el resultado
+        JLabel resultadoLabel = new JLabel("Resultado:");
+        resultadoLabel.setHorizontalAlignment(SwingConstants.CENTER); // Centrar el texto del JLabel
+        resultadoLabel.setBounds(10, 140, 380, 20); // Establecer posición y tamaño
+        panel.add(resultadoLabel);
+        
 //		BOTONES OPERACIONES
 		JRadioButton btnSuma = new JRadioButton("+", false);
 		btnSuma.setBounds(250, 10, 50, 30);
@@ -76,19 +71,39 @@ public class TA19Ej4_Calculadora extends JFrame {
         bgroup.add(btnProd);
         bgroup.add(btnDiv);
         
-		double op1 = Double.parseDouble(textOP1.getText());
-        double op2 = Double.parseDouble(textOP2.getText());
-//        double resultado = 0;
-//        if (btnSuma.isSelected()) {
-//            resultado = op1 + op2;
-//        } else if (btnResta.isSelected()) {
-//        	resultado = op1 - op2;
-//        } else if (btnProd.isSelected()) {
-//        	resultado = op1 * op2;
-//        } else if (btnDiv.isSelected()) {
-//        	resultado = op1 / op2;
-//        }
-        
+//      BOTON CALCULAR
+		JButton btnCalcular = new JButton("Calcular");
+		btnCalcular.setBounds(125, 110, 150, 25);
+		panel.add(btnCalcular);
+
+		// Agregar ActionListener a CALCULAR
+		btnCalcular.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        // Obtener los operandos ingresados
+		        double op1 = Double.parseDouble(textOP1.getText());
+		        double op2 = Double.parseDouble(textOP2.getText());
+		        double resultado = 0;
+		        // Verificar qué operación se seleccionó
+		        if (btnSuma.isSelected()) {
+		            resultado = op1 + op2;
+		        } else if (btnResta.isSelected()) {
+		            resultado = op1 - op2;
+		        } else if (btnProd.isSelected()) {
+		            resultado = op1 * op2;
+		        } else if (btnDiv.isSelected()) {
+		            // Verificar si el divisor es cero para evitar la división por cero
+		            if (op2 != 0) {
+		                resultado = op1 / op2;
+		            } else {
+		                JOptionPane.showMessageDialog(null, "No se puede dividir por cero");
+		                return; // Salir del ActionListener sin continuar con el cálculo
+		            }
+		        }
+		        // Mostrar el resultado en el JLabel
+		        resultadoLabel.setText("Resultado: " + resultado);
+		    }
+		});
+		
 	}
 
 	public static void main(String[] args) {
