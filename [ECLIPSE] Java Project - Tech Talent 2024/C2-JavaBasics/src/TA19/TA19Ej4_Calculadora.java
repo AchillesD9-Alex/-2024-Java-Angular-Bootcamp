@@ -19,8 +19,7 @@ public class TA19Ej4_Calculadora extends JFrame {
 //      CREAR PANEL
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		Font font = new Font("Arial", Font.BOLD, 14);
-		panel.setFont(font);
+		Font font = new Font("Arial", Font.PLAIN, 14);
 		add(panel);
 
 //      OPERANDO 1
@@ -56,19 +55,20 @@ public class TA19Ej4_Calculadora extends JFrame {
 		});
 //		BOTONES OPERACIONES
 		JToggleButton toggleSuma = new JToggleButton("+", false);
-		toggleSuma.setBounds(250, 20, 30, 30);
+		toggleSuma.setBounds(220, 20, 40, 30);
+		toggleSuma.setFont(font);
 		panel.add(toggleSuma);
 		
 		JToggleButton toggleResta = new JToggleButton("-", false);
-		toggleResta.setBounds(250, 20, 20, 20);
+		toggleResta.setBounds(260, 20, 30, 30);
 		panel.add(toggleResta);
 		
 		JToggleButton toggleProd = new JToggleButton("*", false);
-		toggleProd.setBounds(250, 20, 20, 20);
+		toggleProd.setBounds(300, 20, 30, 30);
 		panel.add(toggleProd);
 		
 		JToggleButton toggleDiv = new JToggleButton("/", false);
-		toggleDiv.setBounds(250, 20, 20, 20);
+		toggleDiv.setBounds(340, 20, 30, 30);
 		panel.add(toggleDiv);
 
 	}
