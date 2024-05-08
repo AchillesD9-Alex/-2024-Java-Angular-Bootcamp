@@ -2,6 +2,7 @@ package TA19;
 
 import javax.swing.*;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.*;
 
@@ -19,7 +20,7 @@ public class TA19Ej4_Calculadora extends JFrame {
 //      CREAR PANEL
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		Font font = new Font("Arial", Font.PLAIN, 14);
+		Font font = new Font("Arial", Font.BOLD, 10);
 		add(panel);
 
 //      OPERANDO 1
@@ -38,6 +39,7 @@ public class TA19Ej4_Calculadora extends JFrame {
 
 		JTextField textOP2 = new JTextField(20);
 		textOP2.setBounds(100, 50, 100, 25);
+//		
 		panel.add(textOP2);
 
 //      BOTON CALCULAR
@@ -48,29 +50,45 @@ public class TA19Ej4_Calculadora extends JFrame {
 		// Agregar ActionListener a CALCULAR
 		botonAñadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
-				
+			
 			}
 		});
 //		BOTONES OPERACIONES
-		JToggleButton toggleSuma = new JToggleButton("+", false);
-		toggleSuma.setBounds(220, 20, 40, 30);
-		toggleSuma.setFont(font);
-		panel.add(toggleSuma);
+		JRadioButton btnSuma = new JRadioButton("+", false);
+		btnSuma.setBounds(250, 10, 50, 30);
+		panel.add(btnSuma);
 		
-		JToggleButton toggleResta = new JToggleButton("-", false);
-		toggleResta.setBounds(260, 20, 30, 30);
-		panel.add(toggleResta);
+		JRadioButton btnResta = new JRadioButton("-", false);
+		btnResta.setBounds(310, 10, 50, 30);
+		panel.add(btnResta);
 		
-		JToggleButton toggleProd = new JToggleButton("*", false);
-		toggleProd.setBounds(300, 20, 30, 30);
-		panel.add(toggleProd);
+		JRadioButton btnProd = new JRadioButton("*", false);
+		btnProd.setBounds(250, 45, 50, 30);
+		panel.add(btnProd);
 		
-		JToggleButton toggleDiv = new JToggleButton("/", false);
-		toggleDiv.setBounds(340, 20, 30, 30);
-		panel.add(toggleDiv);
+		JRadioButton btnDiv = new JRadioButton("/", false);
+		btnDiv.setBounds(310, 45, 50, 30);
+		panel.add(btnDiv);
 
+		ButtonGroup bgroup = new ButtonGroup();
+        bgroup.add(btnSuma);
+        bgroup.add(btnResta);
+        bgroup.add(btnProd);
+        bgroup.add(btnDiv);
+        
+		double op1 = Double.parseDouble(textOP1.getText());
+        double op2 = Double.parseDouble(textOP2.getText());
+//        double resultado = 0;
+//        if (btnSuma.isSelected()) {
+//            resultado = op1 + op2;
+//        } else if (btnResta.isSelected()) {
+//        	resultado = op1 - op2;
+//        } else if (btnProd.isSelected()) {
+//        	resultado = op1 * op2;
+//        } else if (btnDiv.isSelected()) {
+//        	resultado = op1 / op2;
+//        }
+        
 	}
 
 	public static void main(String[] args) {
