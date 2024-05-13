@@ -33,7 +33,8 @@ public class TA19Ej1_SaludadorPersonalizable extends JFrame {
                 // Obtener el texto del campo de texto
                 String nombre = textField.getText();
                 // Mostrar un mensaje en un JOptionPane
-                JOptionPane.showMessageDialog(TA19Ej1_SaludadorPersonalizable.this, "¡Hola, " + nombre + "!");
+                JOptionPane.showMessageDialog(TA19Ej1_SaludadorPersonalizable.this,
+                		"¡Hola, " + nombre + "!");
             	}
         	}
         );
