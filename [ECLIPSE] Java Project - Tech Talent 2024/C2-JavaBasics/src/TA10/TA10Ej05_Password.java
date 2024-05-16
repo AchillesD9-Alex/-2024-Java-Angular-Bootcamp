@@ -30,6 +30,7 @@ public class TA10Ej05_Password {
 
             // Preguntar al usuario si desea transformar contraseñas débiles en fuertes
             if (preguntarTransformarDebiles(scanner, passwords, esFuerte)) {
+                System.out.println("Transformando contraseñas débiles en fuertes...");
                 for (int i = 0; i < cantidad; i++) {
                     if (!esFuerte[i]) {
                         // Transformar la contraseña débil en fuerte
@@ -52,36 +53,64 @@ public class TA10Ej05_Password {
         scanner.close(); // Cerrar el scanner al finalizar
     }
 
- // Método para obtener la longitud con manejo de excepciones
+    // Método para obtener la longitud con manejo de excepciones
     private static int obtenerLongitud(Scanner scanner) {
         while (true) {
             try {
-                System.out.print("Ingrese la longitud de los passwords (mínimo " + Password.getLongitudMinima() + "): ");
-                int longitud = scanner.nextInt();
+                System.out.print("Ingrese la longitud de los passwords (mínimo "
+                							+ Password.getLongitudMinima() + "): ");
+                String input = scanner.next();
+                if (!esNumeroEntero(input)) {
+                    throw new EntradaNoNumericaException("El valor ingresado no es un número entero.");
+                }
+                int longitud = Integer.parseInt(input);
                 if (longitud < Password.getLongitudMinima()) {
-                    throw new IllegalArgumentException("La longitud de la contraseña debe ser al menos " + Password.getLongitudMinima());
+                    throw new LongitudInvalidaException("La longitud de la contraseña debe ser al menos "
+                    						+ Password.getLongitudMinima());
                 }
                 return longitud;
+            } catch (LongitudInvalidaException | EntradaNoNumericaException e) {
+                System.out.println("Error: " + e.getMessage());
             } catch (Exception e) {
-                System.out.println("Error: Ingrese un número válido.");
+                System.out.println("Error inesperado: " + e.getMessage());
                 scanner.nextLine(); // Limpiar el buffer de entrada
             }
         }
     }
 
+    // Método auxiliar para verificar si un String es un número entero
+    public static boolean esNumeroEntero(String longitud) {
+        for (int i = 0; i < longitud.length(); i++) {
+            if (!Character.isDigit(longitud.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     // Método para obtener la cantidad de passwords con manejo de excepciones
     private static int obtenerCantidad(Scanner scanner) {
         while (true) {
             try {
                 System.out.print("Ingrese la cantidad de passwords a generar: ");
-                return scanner.nextInt();
+                String input = scanner.next();
+                if (!esNumeroEntero(input)) {
+                    throw new EntradaNoNumericaException("La cantidad ingresada no es un número entero positivo.");
+                }
+                int cantidad = Integer.parseInt(input);
+                if (cantidad <= 0) {
+                    throw new CantidadInvalidaException("La cantidad ingresada debe ser un número entero positivo.");
+                }
+                return cantidad;
+            } catch (CantidadInvalidaException | EntradaNoNumericaException e) {
+                System.out.println("Error: " + e.getMessage());
             } catch (Exception e) {
-                System.out.println("Error: Ingrese un número válido.");
+                System.out.println("Error inesperado: " + e.getMessage());
                 scanner.nextLine(); // Limpiar el buffer de entrada
             }
         }
     }
+
 
     // Método para preguntar al usuario si desea transformar contraseñas débiles en fuertes
     private static boolean preguntarTransformarDebiles(Scanner scanner, Password[] passwords, boolean[] esFuerte) {
@@ -128,3 +157,27 @@ public class TA10Ej05_Password {
         }
     }
 }
+
+
+    
+ // Excepción para manejar longitudes inválidas
+    class LongitudInvalidaException extends Exception {
+        public LongitudInvalidaException(String mensaje) {
+            super(mensaje);
+        }
+    }
+
+    // Excepción para manejar entradas no numéricas
+    class EntradaNoNumericaException extends Exception {
+        public EntradaNoNumericaException(String mensaje) {
+            super(mensaje);
+        }
+    }
+    
+    class CantidadInvalidaException extends Exception {
+        public CantidadInvalidaException(String message) {
+            super(message);
+        }
+    }
+
+    

@@ -53,7 +53,8 @@ public class TA10Ej04_Calculo {
                         break;
                     case "Raíz Cuadrada":
                         if (numero1 < 0) {
-                            throw new ArithmeticException("No se puede calcular la raíz cuadrada de un número negativo");
+                            throw new ArithmeticException(
+                            		"No se puede calcular la raíz cuadrada de un número negativo");
                         }
                         resultado = Math.sqrt(numero1);
                         break;
@@ -66,9 +67,11 @@ public class TA10Ej04_Calculo {
                 JOptionPane.showMessageDialog(null, "El resultado de la operación " + seleccion + " es: " + resultado);
 
             } catch (ArithmeticException e) {
-                JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error de Cálculo", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(),
+                		"Error de Cálculo", JOptionPane.ERROR_MESSAGE);
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Error: Por favor ingrese un número válido", "Error de Entrada", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error: Por favor ingrese un número válido",
+                		"Error de Entrada",JOptionPane.ERROR_MESSAGE);
             }
 
             // Preguntar si el usuario quiere realizar otra operación
