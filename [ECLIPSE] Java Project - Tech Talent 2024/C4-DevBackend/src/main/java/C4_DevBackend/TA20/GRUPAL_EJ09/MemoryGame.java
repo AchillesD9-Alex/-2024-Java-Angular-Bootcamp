@@ -18,7 +18,7 @@ public class MemoryGame {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/db_images";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
-    private static final String SQL_QUERY = "SELECT image FROM images ORDER BY RAND() LIMIT ?";
+    private static final String SQL_QUERY = "SELECT name, image FROM parejas ORDER BY RAND() LIMIT ?";
     private static ImageIcon backImage;
     private static ArrayList<ImageIcon> cardImages;
     private static JButton[] cardButtons;
@@ -45,36 +45,66 @@ public class MemoryGame {
 
         frame.add(panel);
         frame.setVisible(true);
+
+        // Escalar las imágenes después de que los botones hayan sido agregados al panel
+        SwingUtilities.invokeLater(() -> {
+            for (int i = 0; i < NUM_CARDS; i++) {
+                ImageIcon scaledBackImage = getScaledIcon(backImage, cardButtons[i].getWidth(), cardButtons[i].getHeight());
+                cardButtons[i].setIcon(scaledBackImage);
+                cardImages.set(i, getScaledIcon(cardImages.get(i), cardButtons[i].getWidth(), cardButtons[i].getHeight()));
+            }
+        });
     }
 
     private static void loadCardImagesFromDatabase() {
         try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(SQL_QUERY)) {
-            pstmt.setInt(1, NUM_CARDS);
+            pstmt.setInt(1, NUM_CARDS / 2);
             ResultSet rs = pstmt.executeQuery();
 
             cardImages = new ArrayList<>();
             while (rs.next()) {
                 byte[] imageData = rs.getBytes("image");
+                String name = rs.getString("name");
                 ImageIcon icon = new ImageIcon(imageData);
+                icon.setDescription(name);
                 cardImages.add(icon);
+                cardImages.add(icon); // Crear un par
             }
 
             if (cardImages.size() < NUM_CARDS) {
                 throw new RuntimeException("No hay suficientes imágenes en la base de datos para crear pares de cartas.");
             }
-            System.out.println("Tamaño de cardImages: " + cardImages.size());
-            for (int i = 0; i < cardImages.size(); i++) {
-                System.out.println("Elemento " + i + ": " + cardImages.get(i));
-            }
 
             Collections.shuffle(cardImages);
 
-            backImage = new ImageIcon("C:\\\\Users\\\\ALEX\\\\-2024-Java-Angular-Bootcamp\\\\[ECLIPSE] Java Project - Tech Talent 2024\\\\C4-DevBackend\\\\DB_IMAGES\\\\wassa.jpeg");
+            // Carga la imagen del dorso desde la base de datos
+            loadBackImageFromDatabase();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static void loadBackImageFromDatabase() {
+        try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+             PreparedStatement pstmt = conn.prepareStatement("SELECT image FROM dorso WHERE name = 'newDorso'");
+             ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                byte[] imageData = rs.getBytes("image");
+                backImage = new ImageIcon(imageData);
+            } else {
+                throw new RuntimeException("No se encontró la imagen del dorso en la base de datos.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static ImageIcon getScaledIcon(ImageIcon icon, int width, int height) {
+        Image img = icon.getImage();
+        Image scaledImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(scaledImg);
     }
 
     private static class CardClickListener implements ActionListener {
@@ -93,7 +123,8 @@ public class MemoryGame {
                 secondCardIndex = index;
                 cardButtons[index].setIcon(cardImages.get(index));
 
-                if (cardImages.get(firstCardIndex).equals(cardImages.get(secondCardIndex))) {
+                // Verificar si las cartas coinciden
+                if (cardImages.get(firstCardIndex).getDescription().equals(cardImages.get(secondCardIndex).getDescription())) {
                     firstCardIndex = -1;
                     secondCardIndex = -1;
                 } else {
@@ -113,3 +144,4 @@ public class MemoryGame {
         }
     }
 }
+

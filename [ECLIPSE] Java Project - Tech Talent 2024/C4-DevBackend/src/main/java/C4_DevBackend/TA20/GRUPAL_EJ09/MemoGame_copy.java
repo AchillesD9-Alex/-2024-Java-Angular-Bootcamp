@@ -11,17 +11,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MemoGame_copy {
+public class MemoryGame {
     private static final int ROWS = 4;
     private static final int COLS = 4;
     private static final int NUM_CARDS = ROWS * COLS;
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/db_images"; // URL de la base de datos
-    private static final String USERNAME = "root"; // Nombre de usuario de la base de datos
-    private static final String PASSWORD = ""; // Contraseña de la base de datos
-
-    private static final String SQL_QUERY = "SELECT image FROM images ORDER BY RAND() LIMIT ?"; // Consulta SQL para obtener rutas de imágenes aleatorias
-    private static final String IMAGE_NAME_PATTERN = "meme%d"; // Patrón de nombre de imagen
-
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/db_images";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "";
+    private static final String SQL_QUERY = "SELECT name, image FROM parejas ORDER BY RAND() LIMIT ?";
     private static ImageIcon backImage;
     private static ArrayList<ImageIcon> cardImages;
     private static JButton[] cardButtons;
@@ -29,7 +26,7 @@ public class MemoGame_copy {
     private static int secondCardIndex = -1;
 
     public static void main(String[] args) {
-        loadCardImagesFromDatabase(NUM_CARDS);
+        loadCardImagesFromDatabase();
 
         JFrame frame = new JFrame("Juego de Memoria");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,30 +47,50 @@ public class MemoGame_copy {
         frame.setVisible(true);
     }
 
-    private static void loadCardImagesFromDatabase(int numCards) {
+    private static void loadCardImagesFromDatabase() {
         try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(SQL_QUERY)) {
-            pstmt.setInt(1, numCards / 2);
+            pstmt.setInt(1, NUM_CARDS / 2); // Selecciona la mitad de las imágenes necesarias
             ResultSet rs = pstmt.executeQuery();
 
             cardImages = new ArrayList<>();
             while (rs.next()) {
                 byte[] imageData = rs.getBytes("image");
+                String name = rs.getString("name");
                 ImageIcon icon = new ImageIcon(imageData);
+                icon.setDescription(name); // Establece la descripción como el nombre de la imagen
                 cardImages.add(icon);
-                cardImages.add(icon); // Duplica la imagen para crear un par
+                
+                // Crea una copia para el par y también establece la descripción
+                ImageIcon iconCopy = new ImageIcon(imageData);
+                iconCopy.setDescription(name);
+                cardImages.add(iconCopy);
             }
 
-            if (cardImages.size() < numCards) {
+            if (cardImages.size() < NUM_CARDS) {
                 throw new RuntimeException("No hay suficientes imágenes en la base de datos para crear pares de cartas.");
             }
 
             Collections.shuffle(cardImages); // Baraja las cartas
 
-            // Carga la imagen del dorso
-            // Suponiendo que el dorso siempre está en la misma ubicación
-            backImage = new ImageIcon("C:\\Users\\ALEX\\-2024-Java-Angular-Bootcamp\\[ECLIPSE] Java Project - Tech Talent 2024\\C4-DevBackend\\DB_IMAGES\\wassa.jpeg");
+            // Carga la imagen del dorso desde la base de datos
+            loadBackImageFromDatabase();
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void loadBackImageFromDatabase() {
+        try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+             PreparedStatement pstmt = conn.prepareStatement("SELECT image FROM dorso WHERE name = 'newDorso'");
+             ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                byte[] imageData = rs.getBytes("image");
+                backImage = new ImageIcon(imageData);
+            } else {
+                throw new RuntimeException("No se encontró la imagen del dorso en la base de datos.");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,7 +113,7 @@ public class MemoGame_copy {
                 cardButtons[index].setIcon(cardImages.get(index));
 
                 // Verificar si las cartas coinciden
-                if (cardImages.get(firstCardIndex).equals(cardImages.get(secondCardIndex))) {
+                if (cardImages.get(firstCardIndex).getDescription().equals(cardImages.get(secondCardIndex).getDescription())) {
                     // Cartas coinciden, se dejan descubiertas
                     firstCardIndex = -1;
                     secondCardIndex = -1;
@@ -118,4 +135,3 @@ public class MemoGame_copy {
         }
     }
 }
-
