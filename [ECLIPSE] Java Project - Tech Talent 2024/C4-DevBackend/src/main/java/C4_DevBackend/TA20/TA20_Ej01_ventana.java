@@ -43,7 +43,7 @@ public class TA20_Ej01_ventana {
         String password = "";
 
         // Consulta SQL para obtener la imagen
-        String query = "SELECT image FROM images WHERE name = 'wassa'";
+        String query = "SELECT image FROM wassa WHERE name = 'wassa'";
 
         try (Connection connection = DriverManager.getConnection(url, username, password);
              Statement statement = connection.createStatement();
