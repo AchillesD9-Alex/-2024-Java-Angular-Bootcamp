@@ -11,7 +11,7 @@ public class TA20_Ej02_doubleButton
         // Crear el frame principal
         JFrame frame = new JFrame("SuperVentana con 2 botones waaahhhhw");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 200);
+        frame.setSize(410, 200);
         
         // Crear el panel principal
         JPanel panel = new JPanel();

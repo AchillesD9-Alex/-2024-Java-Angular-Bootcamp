@@ -14,7 +14,7 @@ public class TA20_Ej03_Clicker {
         // Crear el marco de la aplicación
         JFrame frame = new JFrame("Clicker pa que te aburras");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200);
+        frame.setSize(350, 200);
 
         // Crear etiquetas
         JLabel label1 = new JLabel("Botón 1: 0 clicks", SwingConstants.CENTER);

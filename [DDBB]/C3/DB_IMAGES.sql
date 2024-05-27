@@ -1,3 +1,5 @@
+INSERT INTO wassa (name, image) VALUES ('wassa', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/wassa.jpeg'));
+
 INSERT INTO images (name, image) VALUES ('MEME1A', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/MEME1A.jpg'));
 INSERT INTO images (name, image) VALUES ('MEME1B', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/MEME1B.jpg'));
 INSERT INTO images (name, image) VALUES ('MEME2A', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/MEME2A.jpg'));
@@ -14,3 +16,16 @@ INSERT INTO images (name, image) VALUES ('MEME7A', LOAD_FILE('C:/Users/ALEX/-202
 INSERT INTO images (name, image) VALUES ('MEME7B', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/MEME7B.jpg'));
 INSERT INTO images (name, image) VALUES ('MEME8A', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/MEME8A.jpg'));
 INSERT INTO images (name, image) VALUES ('MEME8B', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/MEME8B.jpg'));
+
+INSERT INTO parejas (name, image) VALUES 
+('pic1', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/grupal/parejas/pic1.jpg')),
+('pic2', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/grupal/parejas/pic2.jpg')),
+('pic3', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/grupal/parejas/pic3.jpg')),
+('pic4', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/grupal/parejas/pic4.jpg')),
+('pic5', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/grupal/parejas/pic5.jpg')),
+('pic6', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/grupal/parejas/pic6.jpg')),
+('pic7', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/grupal/parejas/pic7.jpg')),
+('pic8', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/grupal/parejas/pic8.jpg'));
+
+INSERT INTO dorso (name, image) VALUES 
+('newDorso', LOAD_FILE('C:/Users/ALEX/-2024-Java-Angular-Bootcamp/[ECLIPSE] Java Project - Tech Talent 2024/C4-DevBackend/DB_IMAGES/grupal/dorso/newDorso.jpg'));
