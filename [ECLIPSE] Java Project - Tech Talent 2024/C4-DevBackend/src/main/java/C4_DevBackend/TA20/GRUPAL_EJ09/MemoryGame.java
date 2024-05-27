@@ -1,3 +1,12 @@
+/*
+ * Acerca de...
+ * 	Grupo formado por Alexandre Román, Aurora Socorro, Jose Ruiz
+ * 	A fecha de: 27/05/2024
+ * 	GitHub: https://github.com/AchillesD9-Alex/-2024-Java-Angular-Bootcamp/blob/2bf7253702c252d1a8a5fe2f267e6d9add24b1fb/%5BECLIPSE%5D%20Java%20Project%20-%20Tech%20Talent%202024/C4-DevBackend/src/main/java/C4_DevBackend/TA20/GRUPAL_EJ09/MemoryGame.java
+ * 	Ver. 1.3
+ * 
+ */
+
 package C4_DevBackend.TA20.GRUPAL_EJ09;
 
 import javax.swing.*;
@@ -171,29 +180,38 @@ public class MemoryGame {
         public void actionPerformed(ActionEvent e) {
             if (firstCardIndex == -1) {
                 firstCardIndex = index;
-                cardButtons[index].setIcon(scaleImageIcon(cardImages.get(index), cardButtons[index].getSize()));
+                cardButtons[index].setIcon(scaleImageIcon
+                		(cardImages.get(index), cardButtons[index].getSize()));
+                
             } else if (secondCardIndex == -1 && index != firstCardIndex) {
                 secondCardIndex = index;
-                cardButtons[index].setIcon(scaleImageIcon(cardImages.get(index), cardButtons[index].getSize()));
+                cardButtons[index].setIcon(scaleImageIcon
+                		(cardImages.get(index), cardButtons[index].getSize()));
 
                 // Incrementar y actualizar el contador de movimientos
                 moveCount++;
                 moveCounterLabel.setText("Movimientos: " + moveCount);
 
                 // Verificar si las cartas coinciden
-                if (cardImages.get(firstCardIndex).getDescription().equals(cardImages.get(secondCardIndex).getDescription())) {
+                if (cardImages.get(firstCardIndex).getDescription().
+                		equals(cardImages.get(secondCardIndex).getDescription())) {
+                	
                     // Cartas coinciden, se dejan descubiertas
                     pairsFound++;
                     firstCardIndex = -1;
                     secondCardIndex = -1;
                     checkGameWon();
+                    
                 } else {
                     // Cartas no coinciden, se voltean después de un breve retraso
                     Timer timer = new Timer(1000, new ActionListener() {
+                    	
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            cardButtons[firstCardIndex].setIcon(scaleImageIcon(backImage, cardButtons[firstCardIndex].getSize()));
-                            cardButtons[secondCardIndex].setIcon(scaleImageIcon(backImage, cardButtons[secondCardIndex].getSize()));
+                            cardButtons[firstCardIndex].setIcon(scaleImageIcon(backImage,
+                            		cardButtons[firstCardIndex].getSize()));
+                            cardButtons[secondCardIndex].setIcon(scaleImageIcon(backImage,
+                            		cardButtons[secondCardIndex].getSize()));
                             firstCardIndex = -1;
                             secondCardIndex = -1;
                         }
@@ -206,7 +224,8 @@ public class MemoryGame {
 
         private void checkGameWon() {
             if (pairsFound == NUM_CARDS / 2) {
-                JOptionPane.showMessageDialog(null, "¡¡FELICIDADES, HAS GANADO!!");
+                JOptionPane.showMessageDialog(null,
+                		"¡¡FELICIDADES, HAS GANADO!!");
             }
         }
     }
