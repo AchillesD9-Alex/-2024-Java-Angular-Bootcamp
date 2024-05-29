@@ -7,22 +7,49 @@ import TA22_MVC.Models.Video;
 import TA22_MVC.Views.ClienteView;
 import TA22_MVC.Views.VideoView;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class TA22_Main {
     public static void main(String[] args) {
-        // Crear el modelo
-        Cliente modeloCliente = new Cliente(0, "", "", "", 0, null);
-        Video modeloVideo = new Video(0, "", "", 0);
+        // Conexión a la base de datos
+        String jdbcUrl = "jdbc:mysql://localhost:3306/mvc_db1";
+        String user = "root";
+        String password = "";
 
-        // Crear la vista
-        ClienteView vistaCliente = new ClienteView();
-        VideoView vistaVideo = new VideoView();
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl, user, password);
 
-        // Crear el controlador
-        ClienteController clienteController = new ClienteController(modeloCliente, vistaCliente);
-        VideoController videoController = new VideoController(modeloVideo, vistaVideo);
+            // Creación del modelo y la vista para Cliente
+            Cliente modeloCliente = new Cliente();
+            ClienteView vistaCliente = new ClienteView();
+            ClienteController controladorCliente = new ClienteController(modeloCliente, vistaCliente, connection);
 
-        // Inicializar la vista
-        vistaCliente.setVisible(true);
-        vistaVideo.setVisible(true);
+            // Creación del modelo y la vista para Video
+            Video modeloVideo = new Video();
+            VideoView vistaVideo = new VideoView();
+            VideoController controladorVideo = new VideoController(modeloVideo, vistaVideo, connection);
+
+            // Configuración de listeners para Cliente
+            vistaCliente.addAgregarListener(e -> controladorCliente.agregarCliente());
+            vistaCliente.addActualizarListener(e -> controladorCliente.actualizarCliente());
+            vistaCliente.addEliminarListener(e -> controladorCliente.eliminarCliente());
+            vistaCliente.addBuscarListener(e -> {
+            	int idCliente = vistaCliente.getId();
+                controladorCliente.buscarCliente(idCliente);
+            });
+
+            // Configuración de listeners para Video
+            vistaVideo.addAgregarListener(e -> controladorVideo.agregarVideo());
+            vistaVideo.addActualizarListener(e -> controladorVideo.actualizarVideo());
+            vistaVideo.addEliminarListener(e -> controladorVideo.eliminarVideo());
+            vistaVideo.addBuscarListener(e -> {
+            	int idVideo = vistaVideo.getId();
+                controladorVideo.buscarVideo(idVideo);
+            });
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

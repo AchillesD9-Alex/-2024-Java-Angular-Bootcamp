@@ -1,63 +1,58 @@
 package TA22_MVC.Controllers;
 
-import java.util.Date;
-
 import TA22_MVC.Models.Cliente;
 import TA22_MVC.Views.ClienteView;
+
+import java.sql.Connection;
 
 public class ClienteController {
     private Cliente modelo;
     private ClienteView vista;
+    private ClienteDAO clienteDAO;
 
-    public ClienteController(Cliente modelo, ClienteView vista) {
+    public ClienteController(Cliente modelo, ClienteView vista, Connection connection) {
         this.modelo = modelo;
         this.vista = vista;
-        initController();
-    }
-
-    private void initController() {
-        vista.addAgregarListener(e -> agregarCliente());
-        vista.addActualizarListener(e -> actualizarCliente());
-        vista.addEliminarListener(e -> eliminarCliente());
-        vista.addBuscarListener(e -> buscarCliente());
+        this.clienteDAO = new ClienteDAO(connection);
     }
 
     public void agregarCliente() {
-        Cliente cliente = new Cliente(
-            0, 
-            vista.getNombre(), 
-            vista.getApellido(), 
-            vista.getDireccion(), 
-            vista.getDni(), 
-            new Date()
-        );
-        Cliente.agregarCliente(cliente);
+        // Obtener datos de la vista y actualizar el modelo
+        modelo.setNombre(vista.getNombre());
+        modelo.setApellido(vista.getApellido());
+        modelo.setDireccion(vista.getDireccion());
+        modelo.setDni(vista.getDni());
+        // Lógica para agregar un cliente a la base de datos
+        clienteDAO.agregarCliente(modelo);
     }
 
     public void actualizarCliente() {
-        Cliente cliente = new Cliente(
-            modelo.getId(), 
-            vista.getNombre(), 
-            vista.getApellido(), 
-            vista.getDireccion(), 
-            vista.getDni(), 
-            new Date()
-        );
-        Cliente.actualizarCliente(cliente);
+        // Obtener datos de la vista y actualizar el modelo
+        modelo.setNombre(vista.getNombre());
+        modelo.setApellido(vista.getApellido());
+        modelo.setDireccion(vista.getDireccion());
+        modelo.setDni(vista.getDni());
+        // Lógica para actualizar un cliente en la base de datos
+        clienteDAO.actualizarCliente(modelo);
     }
 
     public void eliminarCliente() {
-        Cliente.eliminarCliente(modelo.getId());
+        // Lógica para eliminar un cliente de la base de datos
+        clienteDAO.eliminarCliente(modelo.getId());
     }
 
-    public void buscarCliente() {
-        int idCliente = modelo.getId();
-        Cliente cliente = Cliente.obtenerCliente(idCliente);
+    public void buscarCliente(int idCliente) {
+        // Lógica para buscar un cliente en la base de datos
+        Cliente cliente = clienteDAO.obtenerCliente(idCliente);
         if (cliente != null) {
+            // Actualizar la vista con los datos del cliente encontrado
             vista.setNombre(cliente.getNombre());
             vista.setApellido(cliente.getApellido());
             vista.setDireccion(cliente.getDireccion());
             vista.setDni(cliente.getDni());
+        } else {
+            // Mostrar mensaje de error en la vista
+            vista.mostrarMensaje("Cliente no encontrado.");
         }
     }
 }
