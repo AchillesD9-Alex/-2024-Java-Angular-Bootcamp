@@ -24,5 +24,9 @@ public class VideoController {
     public void deleteVideo(int id) {
         Video.deleteVideo(id);
     }
+    
+    public List<Integer> getAllVideoIds() {
+        return Video.getAllVideoIds();
+    }
 }
 

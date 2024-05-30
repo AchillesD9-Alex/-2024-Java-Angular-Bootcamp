@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +61,9 @@ public class Video {
         this.cli_id = cli_id;
     }
 
+    public String toString() {
+        return title;  // Mostrar el título del video en el JComboBox
+    }
     // Métodos de acceso a datos
     public void addVideo() {
         String sql = "INSERT INTO videos (title, director, cli_id) VALUES (?, ?, ?)";
@@ -133,5 +137,19 @@ public class Video {
             e.printStackTrace();
         }
     }
+    
+ // Método para obtener todos los IDs de los videos
+    public static List<Integer> getAllVideoIds() {
+        List<Integer> ids = new ArrayList<>();
+        try (Connection conn = conexion_database.getConnection(); 
+             Statement stmt = conn.createStatement(); 
+             ResultSet rs = stmt.executeQuery("SELECT id FROM videos")) {
+            while (rs.next()) {
+                ids.add(rs.getInt("id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ids;
+    }
 }
-
