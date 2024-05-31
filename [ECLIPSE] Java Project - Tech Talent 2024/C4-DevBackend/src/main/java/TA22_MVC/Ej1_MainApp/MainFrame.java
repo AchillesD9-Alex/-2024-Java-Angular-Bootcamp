@@ -1,15 +1,15 @@
-package TA22_MVC.MainApp;
+package TA22_MVC.Ej1_MainApp;
 
 import javax.swing.*;
 
-import TA22_MVC.Views.ClienteCreateView;
-import TA22_MVC.Views.ClienteDeleteView;
-import TA22_MVC.Views.ClienteReadView;
-import TA22_MVC.Views.ClienteUpdateView;
-import TA22_MVC.Views.VideoCreateView;
-import TA22_MVC.Views.VideoDeleteView;
-import TA22_MVC.Views.VideoReadView;
-import TA22_MVC.Views.VideoUpdateView;
+import TA22_MVC.Ej1_Views.ClienteCreateView;
+import TA22_MVC.Ej1_Views.ClienteDeleteView;
+import TA22_MVC.Ej1_Views.ClienteReadView;
+import TA22_MVC.Ej1_Views.ClienteUpdateView;
+import TA22_MVC.Ej1_Views.VideoCreateView;
+import TA22_MVC.Ej1_Views.VideoDeleteView;
+import TA22_MVC.Ej1_Views.VideoReadView;
+import TA22_MVC.Ej1_Views.VideoUpdateView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -103,4 +103,3 @@ public class MainFrame extends JFrame {
         new MainFrame();
     }
 }
-

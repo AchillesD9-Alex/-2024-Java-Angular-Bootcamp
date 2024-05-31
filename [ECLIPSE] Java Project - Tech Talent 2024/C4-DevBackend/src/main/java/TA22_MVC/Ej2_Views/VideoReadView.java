@@ -1,9 +1,9 @@
-package TA22_MVC.Views;
+package TA22_MVC.Ej2_Views;
 
 import javax.swing.*;
 
-import TA22_MVC.Controllers.VideoController;
-import TA22_MVC.Models.Video;
+import TA22_MVC.Ej1_Controllers.VideoController;
+import TA22_MVC.Ej1_Models.Video;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,6 +17,7 @@ public class VideoReadView extends JFrame {
         VideoController = new VideoController();
         setTitle("Mostrar Todos los Videos");
         setSize(400, 300);
+        setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
         JTextArea textArea = new JTextArea();

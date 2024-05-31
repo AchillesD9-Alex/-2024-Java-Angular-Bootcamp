@@ -1,13 +1,13 @@
-package TA22_MVC.Controllers;
+package TA22_MVC.Ej2_Controllers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class conexion_database {
-    private static final String URL = "jdbc:mysql://localhost:3306/mvc_db1";
-    private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String URL = "jdbc:mysql://localhost:3306/cientificos_db"; // URL de la base de datos
+    private static final String USER = "root"; // Nombre de usuario de la base de datos
+    private static final String PASSWORD = ""; // Contraseña de la base de datos
 
     public static Connection getConnection() {
         Connection connection = null;
@@ -26,7 +26,7 @@ public class conexion_database {
         }
         return connection;
     }
-    
+
     public static void main(String[] args) {
         // Probar la conexión
         Connection conn = conexion_database.getConnection();

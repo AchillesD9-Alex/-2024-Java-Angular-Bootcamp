@@ -1,9 +1,9 @@
-package TA22_MVC.Views;
+package TA22_MVC.Ej2_Views;
 
 import javax.swing.*;
 
-import TA22_MVC.Controllers.VideoController;
-import TA22_MVC.Models.Video;
+import TA22_MVC.Ej1_Controllers.VideoController;
+import TA22_MVC.Ej1_Models.Video;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,6 +17,7 @@ public class VideoDeleteView extends JFrame {
         videoController = new VideoController();
         setTitle("Eliminar Video");
         setSize(400, 150);
+        setLocationRelativeTo(null);
         setLayout(new GridLayout(0, 2));
 
         // Crear y poblar el JComboBox con los videos existentes

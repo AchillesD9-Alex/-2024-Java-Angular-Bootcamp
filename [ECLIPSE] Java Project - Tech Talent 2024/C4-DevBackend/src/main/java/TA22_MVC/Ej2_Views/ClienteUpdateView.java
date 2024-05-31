@@ -1,9 +1,9 @@
-package TA22_MVC.Views;
+package TA22_MVC.Ej2_Views;
 
 import javax.swing.*;
 
-import TA22_MVC.Controllers.ClienteController;
-import TA22_MVC.Models.Cliente;
+import TA22_MVC.Ej1_Controllers.ClienteController;
+import TA22_MVC.Ej1_Models.Cliente;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,6 +18,7 @@ public class ClienteUpdateView extends JFrame {
         clienteController = new ClienteController();
         setTitle("Actualizar Cliente");
         setSize(400, 300);
+        setLocationRelativeTo(null);
         setLayout(new GridLayout(0, 2));
 
         JTextField idField = new JTextField();

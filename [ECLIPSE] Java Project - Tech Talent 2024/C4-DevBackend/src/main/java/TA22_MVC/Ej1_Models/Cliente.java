@@ -1,4 +1,4 @@
-package TA22_MVC.Models;
+package TA22_MVC.Ej1_Models;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import TA22_MVC.Controllers.conexion_database;
+import TA22_MVC.Ej1_Controllers.conexion_database;
 
 public class Cliente {
     // Atributos del cliente

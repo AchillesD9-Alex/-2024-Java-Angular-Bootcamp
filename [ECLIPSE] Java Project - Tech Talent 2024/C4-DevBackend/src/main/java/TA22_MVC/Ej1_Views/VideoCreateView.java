@@ -1,11 +1,12 @@
-package TA22_MVC.Views;
+package TA22_MVC.Ej1_Views;
 
 import javax.swing.*;
 
-import TA22_MVC.Controllers.ClienteController;
-import TA22_MVC.Controllers.VideoController;
-import TA22_MVC.Models.Cliente;
-import TA22_MVC.Models.Video;
+import TA22_MVC.Ej1_Controllers.ClienteController;
+import TA22_MVC.Ej1_Controllers.VideoController;
+import TA22_MVC.Ej1_Models.Cliente;
+import TA22_MVC.Ej1_Models.Video;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +19,7 @@ public class VideoCreateView extends JFrame {
         videoController = new VideoController();
         setTitle("Agregar Video");
         setSize(400, 300);
+        setLocationRelativeTo(null);
 
         // Asegúrate de establecer GridLayout
         setLayout(new GridLayout(5, 2)); // 5 filas y 2 columnas

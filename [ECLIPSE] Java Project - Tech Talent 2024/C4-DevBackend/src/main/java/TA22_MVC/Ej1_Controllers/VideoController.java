@@ -1,8 +1,8 @@
-package TA22_MVC.Controllers;
+package TA22_MVC.Ej1_Controllers;
 
 import java.util.List;
 
-import TA22_MVC.Models.Video;
+import TA22_MVC.Ej1_Models.Video;
 
 public class VideoController {
     public void addVideo(Video video) {

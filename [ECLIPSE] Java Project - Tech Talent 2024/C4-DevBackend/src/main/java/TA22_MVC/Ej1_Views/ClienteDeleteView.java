@@ -1,9 +1,9 @@
-package TA22_MVC.Views;
+package TA22_MVC.Ej1_Views;
 
 import javax.swing.*;
 
-import TA22_MVC.Controllers.ClienteController;
-import TA22_MVC.Models.Cliente;
+import TA22_MVC.Ej1_Controllers.ClienteController;
+import TA22_MVC.Ej1_Models.Cliente;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,6 +17,7 @@ public class ClienteDeleteView extends JFrame {
         clienteController = new ClienteController();
         setTitle("Eliminar Cliente");
         setSize(400, 150);
+        setLocationRelativeTo(null);
         setLayout(new GridLayout(0, 2));
 
         // ComboBox para listar los clientes
