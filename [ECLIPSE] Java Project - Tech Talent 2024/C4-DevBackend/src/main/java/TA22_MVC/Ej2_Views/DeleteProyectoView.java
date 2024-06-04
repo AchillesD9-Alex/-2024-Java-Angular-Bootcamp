@@ -1,97 +1,50 @@
 package TA22_MVC.Ej2_Views;
 
-import java.awt.EventQueue;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.border.EmptyBorder;
-
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 import TA22_MVC.Ej2_Controllers.ProyectoController;
-import TA22_MVC.Ej2_Models.Proyecto;
+
 
 public class DeleteProyectoView extends JFrame {
+    private JComboBox<String> proyectoComboBox;
+    private JButton submitButton;
 
-    private JPanel contentPane;
-    private JList<String> listProyectos;
-
-    /**
-     * Create the frame.
-     */
     public DeleteProyectoView() {
         setTitle("Eliminar Proyecto");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
-        contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPane);
-        contentPane.setLayout(null);
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Disposes only this window
+        setLocationRelativeTo(null);
 
-        JLabel lblProyectos = new JLabel("Proyectos:");
-        lblProyectos.setBounds(20, 20, 100, 20);
-        contentPane.add(lblProyectos);
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(20, 50, 200, 150);
-        contentPane.add(scrollPane);
+        ProyectoController controller = new ProyectoController();
+        List<String> nombresProyectos = controller.getAllNombresProyectos(); // Obtener nombres de proyectos
 
-        listProyectos = new JList<>();
-        scrollPane.setViewportView(listProyectos);
+        panel.add(new JLabel("Seleccione el proyecto a eliminar:"));
+        proyectoComboBox = new JComboBox<>(nombresProyectos.toArray(new String[0]));
+        panel.add(proyectoComboBox);
 
-        JButton btnEliminarSeleccionados = new JButton("Eliminar Proyectos Seleccionados");
-        btnEliminarSeleccionados.setBounds(250, 50, 170, 30);
-        contentPane.add(btnEliminarSeleccionados);
+        submitButton = new JButton("Eliminar");
+        panel.add(submitButton);
 
-        // Obtener la lista de proyectos y mostrarla en la lista
-        DefaultListModel<String> modelProyectos = new DefaultListModel<>();
-        for (Proyecto proyecto : ProyectoController.getAllProyectos()) {
-            modelProyectos.addElement(proyecto.getIdProyecto() + " - " + proyecto.getNombre());
-        }
-        listProyectos.setModel(modelProyectos);
-
-        // Acción para el botón de Eliminar Proyectos Seleccionados
-        btnEliminarSeleccionados.addActionListener(e -> {
-            int[] indicesSeleccionados = listProyectos.getSelectedIndices();
-            if (indicesSeleccionados.length == 0) {
-                JOptionPane.showMessageDialog(this, "Debe seleccionar al menos un proyecto a eliminar", "Error",
-                        JOptionPane.ERROR_MESSAGE);
-            } else {
-                int confirmacion = JOptionPane.showConfirmDialog(this,
-                        "¿Proceder con la eliminación de los proyectos seleccionados?", "Confirmación",
-                        JOptionPane.YES_NO_OPTION);
-                if (confirmacion == JOptionPane.YES_OPTION) {
-                    // Eliminar los proyectos seleccionados
-                    for (int indice : indicesSeleccionados) {
-                        String proyectoSeleccionado = listProyectos.getModel().getElementAt(indice);
-                        String idProyecto = proyectoSeleccionado.split(" - ")[0];
-                        ProyectoController.deleteProyecto(idProyecto);
-                    }
-                    // Actualizar la lista de proyectos después de eliminar
-                    modelProyectos.removeAllElements();
-                    for (Proyecto proyecto : ProyectoController.getAllProyectos()) {
-                        modelProyectos.addElement(proyecto.getIdProyecto() + " - " + proyecto.getNombre());
-                    }
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombreSeleccionado = (String) proyectoComboBox.getSelectedItem();
+                if (nombreSeleccionado != null) {
+                    ProyectoController controller = new ProyectoController();
+                    controller.deleteProyecto(nombreSeleccionado);
+                    JOptionPane.showMessageDialog(null, "Proyecto eliminado exitosamente!");
+                    dispose();  // Close this window after action
+                } else {
+                    JOptionPane.showMessageDialog(null, "Seleccione un proyecto a eliminar.");
                 }
             }
         });
-    }
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    DeleteProyectoView frame = new DeleteProyectoView();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        add(panel);
     }
 }

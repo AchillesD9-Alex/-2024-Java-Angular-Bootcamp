@@ -11,33 +11,33 @@ import TA22_MVC.Ej2_Controllers.conexion_database;
 
 public class AsignadoA {
     // Atributos
-    private String idProyecto;
-    private String DNI;
+    private String id_proyecto;
+    private String dni_cientifico;
 
     // Constructor vacío
     public AsignadoA() {}
 
     // Constructor con parámetros
     public AsignadoA(String idProyecto, String DNI) {
-        this.idProyecto = idProyecto;
-        this.DNI = DNI;
+        this.id_proyecto = idProyecto;
+        this.dni_cientifico = DNI;
     }
 
     // Getters y setters
     public String getIdProyecto() {
-        return idProyecto;
+        return id_proyecto;
     }
 
     public void setIdProyecto(String idProyecto) {
-        this.idProyecto = idProyecto;
+        this.id_proyecto = idProyecto;
     }
 
-    public String getDNI() {
-        return DNI;
+    public String getdni_cientifico() {
+        return dni_cientifico;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public void setdni_cientifico(String DNI) {
+        this.dni_cientifico = DNI;
     }
 
     // Métodos de acceso a datos
@@ -45,7 +45,7 @@ public class AsignadoA {
         String sql = "INSERT INTO asignado_a (id_proyecto, DNI) VALUES (?, ?)";
         try (Connection conn = conexion_database.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, this.getIdProyecto());
-            stmt.setString(2, this.getDNI());
+            stmt.setString(2, this.getdni_cientifico());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,7 +59,7 @@ public class AsignadoA {
             while (rs.next()) {
                 AsignadoA asignadoA = new AsignadoA();
                 asignadoA.setIdProyecto(rs.getString("id_proyecto"));
-                asignadoA.setDNI(rs.getString("DNI"));
+                asignadoA.setdni_cientifico(rs.getString("dni_cientifico"));
                 asignados.add(asignadoA);
             }
         } catch (SQLException e) {
@@ -78,7 +78,7 @@ public class AsignadoA {
                 if (rs.next()) {
                     asignadoA = new AsignadoA();
                     asignadoA.setIdProyecto(rs.getString("id_proyecto"));
-                    asignadoA.setDNI(rs.getString("DNI"));
+                    asignadoA.setdni_cientifico(rs.getString("DNI"));
                 }
             }
         } catch (SQLException e) {
@@ -91,9 +91,9 @@ public class AsignadoA {
         String sql = "UPDATE asignado_a SET id_proyecto = ?, DNI = ? WHERE id_proyecto = ? AND DNI = ?";
         try (Connection conn = conexion_database.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, this.getIdProyecto());
-            stmt.setString(2, this.getDNI());
+            stmt.setString(2, this.getdni_cientifico());
             stmt.setString(3, this.getIdProyecto());
-            stmt.setString(4, this.getDNI());
+            stmt.setString(4, this.getdni_cientifico());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -109,5 +109,8 @@ public class AsignadoA {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public String toString() {
+        return dni_cientifico;
     }
 }

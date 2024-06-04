@@ -1,94 +1,62 @@
 package TA22_MVC.Ej2_Views;
 
-import java.awt.EventQueue;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
+import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import TA22_MVC.Ej2_Controllers.ProyectoController;
 
 public class AddProyectoView extends JFrame {
+    private JTextField idProyectoField;
+    private JTextField nombreField;
+    private JTextField horasField;
+    private JButton crearButton;
 
-    private JPanel contentPane;
-    private JTextField textFieldNombre;
-    private JTextField textFieldHoras;
-
-    /**
-     * Create the frame.
-     */
     public AddProyectoView() {
-        setTitle("Añadir Proyecto");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 450, 200);
-        contentPane = new JPanel();
-        contentPane.setLayout(null);
-        setContentPane(contentPane);
+        setTitle("Crear Proyecto");
+        setLayout(null);
 
-        JLabel lblNombre = new JLabel("Nombre:");
-        lblNombre.setBounds(20, 20, 100, 20);
-        contentPane.add(lblNombre);
+        JLabel idProyectoLabel = new JLabel("ID Proyecto:");
+        idProyectoLabel.setBounds(30, 30, 100, 30);
+        add(idProyectoLabel);
 
-        textFieldNombre = new JTextField();
-        textFieldNombre.setBounds(120, 20, 300, 20);
-        contentPane.add(textFieldNombre);
-        textFieldNombre.setColumns(10);
+        idProyectoField = new JTextField();
+        idProyectoField.setBounds(150, 30, 150, 30);
+        add(idProyectoField);
 
-        JLabel lblHoras = new JLabel("Horas:");
-        lblHoras.setBounds(20, 60, 100, 20);
-        contentPane.add(lblHoras);
+        JLabel nombreLabel = new JLabel("Nombre:");
+        nombreLabel.setBounds(30, 70, 100, 30);
+        add(nombreLabel);
 
-        textFieldHoras = new JTextField();
-        textFieldHoras.setBounds(120, 60, 100, 20);
-        contentPane.add(textFieldHoras);
-        textFieldHoras.setColumns(10);
+        nombreField = new JTextField();
+        nombreField.setBounds(150, 70, 150, 30);
+        add(nombreField);
 
-        JButton btnAddProyecto = new JButton("Añadir Proyecto");
-        btnAddProyecto.setBounds(250, 100, 170, 30);
-        contentPane.add(btnAddProyecto);
-        btnAddProyecto.addActionListener(e -> {
-            addProyecto();
-        });
-    }
+        JLabel horasLabel = new JLabel("Horas:");
+        horasLabel.setBounds(30, 110, 100, 30);
+        add(horasLabel);
 
-    // Método para añadir un proyecto
-    private void addProyecto() {
-        String nombre = textFieldNombre.getText();
-        String horas = textFieldHoras.getText();
+        horasField = new JTextField();
+        horasField.setBounds(150, 110, 150, 30);
+        add(horasField);
 
-        // Verificar si los campos están vacíos
-        if (nombre.isEmpty() || horas.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.", "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        crearButton = new JButton("Crear");
+        crearButton.setBounds(150, 150, 100, 30);
+        add(crearButton);
 
-        // Llamar al controlador para añadir el proyecto a la base de datos
-        ProyectoController.addProyecto(null, nombre, Integer.parseInt(horas));
-        JOptionPane.showMessageDialog(this, "Proyecto añadido exitosamente.", "Éxito",
-                    JOptionPane.INFORMATION_MESSAGE);
-        clearFields();
-    }
-
-    // Método para limpiar los campos de texto
-    private void clearFields() {
-        textFieldNombre.setText("");
-        textFieldHoras.setText("");
-    }
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    AddProyectoView frame = new AddProyectoView();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        crearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String idProyecto = idProyectoField.getText();
+                String nombre = nombreField.getText();
+                int horas = Integer.parseInt(horasField.getText());
+                ProyectoController.addProyecto(idProyecto, nombre, horas);
+                JOptionPane.showMessageDialog(null, "Proyecto creado con éxito!");
             }
         });
+
+        setSize(350, 250);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 }

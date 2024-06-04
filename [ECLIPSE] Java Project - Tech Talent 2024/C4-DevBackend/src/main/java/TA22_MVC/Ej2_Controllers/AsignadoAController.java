@@ -19,12 +19,13 @@ public class AsignadoAController {
         return AsignadoA.getAsignadoById(idProyecto, DNI);
     }
 
-    public static void updateAsignadoA(String idProyecto, String DNI) {
+    public static void updateAsignadoA(String idProyecto, String DNI, String idProyecto2) {
         AsignadoA asignadoA = new AsignadoA(idProyecto, DNI);
         asignadoA.updateAsignadoA();
     }
 
-    public static void deleteAsignadoA(String idProyecto, String DNI) {
+    public void deleteAsignadoA(String idProyecto, String DNI) {
         AsignadoA.deleteAsignadoA(idProyecto, DNI);
     }
+    
 }

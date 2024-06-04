@@ -51,6 +51,21 @@ public class Proyecto {
     }
 
     // Métodos de acceso a datos
+    public static List<String> getAllNombresProyectos() {
+        List<String> nombres = new ArrayList<>();
+        String sql = "SELECT nombre FROM proyecto";
+        try (Connection conn = conexion_database.getConnection(); 
+             PreparedStatement stmt = conn.prepareStatement(sql); 
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                nombres.add(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return nombres;
+    }
+    
     public void addProyecto() {
         String sql = "INSERT INTO proyecto (id_proyecto, nombre, horas) VALUES (?, ?, ?)";
         try (Connection conn = conexion_database.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -99,7 +114,22 @@ public class Proyecto {
         return proyecto;
     }
 
-    public void updateProyecto() {
+    public static void updateProyecto(String idProyecto, String nombre, Integer horas) {
+        Proyecto proyecto = getProyectoById(idProyecto);
+        if (proyecto != null) {
+            if (nombre != null) {
+                proyecto.setNombre(nombre);
+            }
+            if (horas != null) {
+                proyecto.setHoras(horas);
+            }
+            // Guardar el proyecto actualizado en la base de datos
+            proyecto.saveProyecto();
+        }
+    }
+    
+ // Método para guardar los cambios del proyecto en la base de datos
+    public void saveProyecto() {
         String sql = "UPDATE proyecto SET nombre = ?, horas = ? WHERE id_proyecto = ?";
         try (Connection conn = conexion_database.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, this.getNombre());

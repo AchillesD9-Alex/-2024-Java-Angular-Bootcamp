@@ -1,5 +1,7 @@
 package TA22_MVC.Ej2_Views;
+
 import java.awt.EventQueue;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -20,6 +22,7 @@ public class UpdateProyectoView extends JFrame {
     private JComboBox<String> comboBoxProyectos;
     private JTextField textFieldNombre;
     private JTextField textFieldHoras;
+    private List<Proyecto> proyectos;
 
     /**
      * Create the frame.
@@ -38,7 +41,7 @@ public class UpdateProyectoView extends JFrame {
         contentPane.add(lblProyecto);
 
         comboBoxProyectos = new JComboBox<>();
-        comboBoxProyectos.setBounds(120, 20, 200, 20);
+        comboBoxProyectos.setBounds(120, 20, 300, 20);
         contentPane.add(comboBoxProyectos);
 
         JLabel lblNombre = new JLabel("Nombre:");
@@ -46,7 +49,7 @@ public class UpdateProyectoView extends JFrame {
         contentPane.add(lblNombre);
 
         textFieldNombre = new JTextField();
-        textFieldNombre.setBounds(120, 60, 200, 20);
+        textFieldNombre.setBounds(120, 60, 300, 20);
         contentPane.add(textFieldNombre);
         textFieldNombre.setColumns(10);
 
@@ -64,25 +67,46 @@ public class UpdateProyectoView extends JFrame {
         contentPane.add(btnActualizar);
 
         // Obtener la lista de proyectos y mostrarla en el ComboBox
+        proyectos = new ProyectoController().getAllProyectos();
         DefaultComboBoxModel<String> modelProyectos = new DefaultComboBoxModel<>();
-        for (Proyecto proyecto : ProyectoController.getAllProyectos()) {
+        for (Proyecto proyecto : proyectos) {
             modelProyectos.addElement(proyecto.getIdProyecto() + " - " + proyecto.getNombre());
         }
         comboBoxProyectos.setModel(modelProyectos);
 
         // Acción para el botón de Actualizar
         btnActualizar.addActionListener(e -> {
-            String proyectoSeleccionado = (String) comboBoxProyectos.getSelectedItem();
-            if (proyectoSeleccionado != null) {
+            int selectedIndex = comboBoxProyectos.getSelectedIndex();
+            if (selectedIndex >= 0) {
+                Proyecto selectedProyecto = proyectos.get(selectedIndex);
                 int confirmacion = JOptionPane.showConfirmDialog(this,
                         "¿Proceder con la actualización de datos?", "Confirmación", JOptionPane.YES_NO_OPTION);
                 if (confirmacion == JOptionPane.YES_OPTION) {
-                    String idProyecto = proyectoSeleccionado.split(" - ")[0];
+                    String idProyecto = selectedProyecto.getIdProyecto();
                     String nombre = textFieldNombre.getText();
-                    int horas = Integer.parseInt(textFieldHoras.getText());
-                    ProyectoController.updateProyecto(idProyecto, nombre, horas);
+                    String horasText = textFieldHoras.getText();
+                    Integer horas = null;
+                    if (!horasText.isEmpty()) {
+                        try {
+                            horas = Integer.parseInt(horasText);
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(this, "El campo horas debe ser un número entero", "Error",
+                                    JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+                    }
+                    // Actualizar solo los campos rellenados
+                    ProyectoController.updateProyecto(idProyecto, nombre.isEmpty() ? null : nombre, horas);
                     JOptionPane.showMessageDialog(this, "Proyecto actualizado exitosamente", "Éxito",
                             JOptionPane.INFORMATION_MESSAGE);
+                    // Refrescar la lista de proyectos después de la actualización
+                    proyectos = new ProyectoController().getAllProyectos();
+                    modelProyectos.removeAllElements();
+                    for (Proyecto proyecto : proyectos) {
+                        modelProyectos.addElement(proyecto.getIdProyecto() + " - " + proyecto.getNombre());
+                    }
+                    comboBoxProyectos.setModel(modelProyectos);
+                    comboBoxProyectos.setSelectedIndex(selectedIndex);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Debe seleccionar un proyecto", "Error",
