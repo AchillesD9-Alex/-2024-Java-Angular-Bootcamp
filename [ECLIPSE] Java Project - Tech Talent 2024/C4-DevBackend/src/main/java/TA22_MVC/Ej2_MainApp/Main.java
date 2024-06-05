@@ -57,9 +57,9 @@ public class Main extends JFrame {
             case "Proyectos":
                 handleProyectos(choice);
                 break;
-//            case "Asignado_a":
-//                handleAsignados(choice);
-//                break;
+            case "Asignado_a":
+                handleAsignados(choice);
+                break;
             default:
                 System.out.println("Opción no válida");
         }
@@ -106,27 +106,27 @@ public class Main extends JFrame {
                 System.out.println("Opción no válida");
         }
     }
-//
-//    private void handleAsignados(int choice) {
-//        switch (choice) {
-//            case 0:
-//                new CrearAsignadoAView().setVisible(true);
-//                break;
-//            case 1:
-//                new LeerAsignadoAView().setVisible(true);
-//                break;
-//            case 2:
-//                new ActualizarAsignadoAView().setVisible(true);
-//                break;
-//            case 3:
-//                new EliminarAsignadoAView().setVisible(true);
-//                break;
-//            case 4:
-//                break; // Volver
-//            default:
-//                System.out.println("Opción no válida");
-//        }
-//    }
+
+    private void handleAsignados(int choice) {
+        switch (choice) {
+            case 0:
+                new AddAsignadoAView().setVisible(true);
+                break;
+            case 1:
+                new ShowAsignadoAView().setVisible(true);
+                break;
+            case 2:
+                new UpdateAsignadoAView().setVisible(true);
+                break;
+            case 3:
+                new DeleteAsignadoAView().setVisible(true);
+                break;
+            case 4:
+                break; // Volver
+            default:
+                System.out.println("Opción no válida");
+        }
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {

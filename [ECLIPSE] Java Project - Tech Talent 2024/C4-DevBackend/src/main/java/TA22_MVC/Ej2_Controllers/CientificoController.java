@@ -15,7 +15,7 @@ public class CientificoController {
         return Cientifico.getAllNombresCientificos();
     }
     
-    public List<Cientifico> getAllCientificos() {
+    public static List<Cientifico> getAllCientificos() {
         return Cientifico.getAllCientificos();
     }
 

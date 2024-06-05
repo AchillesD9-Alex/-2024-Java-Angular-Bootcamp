@@ -51,11 +51,12 @@ public class AddProyectoView extends JFrame {
                 int horas = Integer.parseInt(horasField.getText());
                 ProyectoController.addProyecto(idProyecto, nombre, horas);
                 JOptionPane.showMessageDialog(null, "Proyecto creado con éxito!");
+                nombreField.setText("");
             }
         });
 
         setSize(350, 250);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
     }

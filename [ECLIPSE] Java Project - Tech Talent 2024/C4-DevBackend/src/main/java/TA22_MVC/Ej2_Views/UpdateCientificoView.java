@@ -41,7 +41,9 @@ public class UpdateCientificoView extends JFrame {
                 CientificoController controller = new CientificoController();
                 controller.updateCientifico(cientifico.getDNI(), nuevoNombre);
                 JOptionPane.showMessageDialog(null, "Científico actualizado exitosamente!");
-                dispose(); // Cierra esta ventana después de la acción
+                
+             // Borrar el texto del JTextField después de actualizar
+                nombreField.setText("");
             }
         });
 

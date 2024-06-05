@@ -38,6 +38,7 @@ public class AddCientificoView extends JFrame {
                 CientificoController controller = new CientificoController();
                 controller.addCientifico(dni, nombre);
                 JOptionPane.showMessageDialog(null, "Científico creado exitosamente!");
+                nombreField.setText("");
             }
         });
 

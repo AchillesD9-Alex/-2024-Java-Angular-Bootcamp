@@ -141,10 +141,10 @@ public class Proyecto {
         }
     }
 
-    public static void deleteProyecto(String idProyecto) {
-        String sql = "DELETE FROM proyecto WHERE id_proyecto = ?";
+    public static void deleteProyecto(String nombre) {
+        String sql = "DELETE FROM proyecto WHERE nombre = ?";
         try (Connection conn = conexion_database.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, idProyecto);
+            stmt.setString(1, nombre);
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
