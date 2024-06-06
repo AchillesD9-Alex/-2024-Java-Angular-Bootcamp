@@ -74,7 +74,8 @@ public class ClienteCreateView extends JFrame {
         add(addButton);
 
         // Etiqueta para indicar campos obligatorios
-        JLabel obligatoriosLabel = new JLabel("**Estos campos son obligatorios");
+        JLabel obligatoriosLabel = new JLabel(
+        		"**Estos campos son obligatorios");
         obligatoriosLabel.setForeground(Color.BLUE);
         add(obligatoriosLabel);
 

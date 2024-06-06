@@ -1,3 +1,109 @@
-* {
-    background-color: aquamarine;
+/* estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f9;
+    padding-top: 80px; /* Espacio para el h1 fijo */
 }
+
+h1 {
+    color: #fff;
+    background-color: #4CAF50; /* color de fondo */
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 0; /* Elimina el margen para que no afecte la posición fija */
+    position: fixed; /* Fija el h1 en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que el h1 ocupe todo el ancho de la página */
+    z-index: 1000; /* Asegura que el h1 esté por encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Añade sombra para mejor visibilidad */
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* lista de nombres */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul li {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+/* imágenes */
+img {
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* formulario */
+form {
+    margin-top: 20px;
+}
+
+form p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Botón "Volver arriba" redondo */
+#backToTop {
+    position: fixed; /* Fijo en la ventana */
+    bottom: 20px; /* Distancia desde el fondo */
+    right: 20px; /* Distancia desde la derecha */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin bordes */
+    width: 50px; /* Ancho */
+    height: 50px; /* Alto */
+    border-radius: 50%; /* Botón perfectamente redondo */
+    cursor: pointer; /* Manito al pasar el ratón */
+    font-size: 24px; /* Tamaño del texto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    text-align: center; /* Centra el texto */
+    line-height: 50px; /* Ajusta la altura de línea para centrar el texto verticalmente */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+#backToTop:hover {
+    background-color: #45a049; /* Cambio de color al pasar el ratón */
+}
+
