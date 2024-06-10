@@ -1,0 +1,56 @@
+/* styles.css */
+
+/* Aplicar un fondo de color grisáceo a todo el documento */
+body {
+    background-color: #f0f0f0; /* Fondo gris claro */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente Comic Sans */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilizar los encabezados en cursiva */
+h1, h2, h3, h4, h5, h6 {
+    font-style: italic;
+}
+
+/* Estilizar el encabezado */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Estilizar el contenido principal */
+main {
+    padding: 2em;
+}
+
+/* Estilizar las secciones */
+section {
+    margin-bottom: 2em;
+}
+
+/* Estilizar el pie de página */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #f1f1f1;
+}

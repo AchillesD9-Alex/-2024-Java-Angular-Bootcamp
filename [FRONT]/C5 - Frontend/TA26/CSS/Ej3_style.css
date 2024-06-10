@@ -1,0 +1,38 @@
+/* Ej3_style.css */
+
+/* Estilo para el encabezado h1 */
+header h1 {
+    background-color: #ffcc00; /* Fondo entre amarillo y naranja */
+    color: #666; /* Letra grisácea */
+    font-weight: bold; /* Letra en negrita */
+    padding: 10px; /* Espaciado interno */
+    text-align: left; /* Alineado a la izquierda */
+}
+
+/* Estilo para el encabezado h2 */
+h2 {
+    color: #87CEEB; /* Color azul cielo */
+    font-weight: bold; /* Letra en negrita */
+    font-style: italic; /* Cursiva */
+}
+
+/* Estilo para el encabezado h3 */
+h3 {
+    color: #87CEEB; /* Color azul cielo */
+    font-size: 1em; /* Tamaño de letra igual al del body */
+}
+/* Ej3_style.css */
+
+/* Ej3_style.css */
+
+/* Estilo para el cuerpo con imagen de fondo */
+body {
+    background-image: url('https://www.demoslavueltaaldia.com/sites/default/files/boniatos-a-la-mallorquina.jpg.jpg'); /* URL de la imagen de fondo */
+    background-size: contain; /* Ajustar la imagen para que quepa en el contenedor */
+    background-repeat: no-repeat; /* Evitar la repetición de la imagen */
+    background-position: center center; /* Centrar la imagen */
+    font-family: Arial, sans-serif; /* Fuente de texto alternativa */
+    color: #333; /* Color de texto */
+}
+
+

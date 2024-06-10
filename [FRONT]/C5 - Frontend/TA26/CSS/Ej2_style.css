@@ -1,0 +1,31 @@
+/* Aplicar un fondo de color azul al cuerpo del documento */
+body {
+    background-color: #207ebd; 
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente Comic Sans */
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Centrar el contenido */
+}
+
+/* Estilizar el encabezado h1 */
+h1 {
+    color: white;
+    background-color: #2a36a7;
+    padding: 1em 0;
+    margin: 0;
+}
+
+/* Estilizar el párrafo */
+p {
+    color: white;
+    padding: 1em;
+}
+
+/* Estilizar la imagen */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 1em 0;
+}
