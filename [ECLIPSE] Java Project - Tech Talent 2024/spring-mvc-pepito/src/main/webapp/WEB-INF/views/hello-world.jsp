@@ -3,9 +3,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
+    <title>Hello World Titulo nav</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <h1>Hello, Pepito</h1>
+    <p>Párrafo normal de la nueva vista y proyecto creado 29/05/2024</p>
 </body>
 </html>
