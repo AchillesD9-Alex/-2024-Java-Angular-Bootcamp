@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+    <h1> ¿Qué puede hacer JavaScript?</h1>
+
+    <!-- p display block + button none: TXT default, se oculta con boton-->
+
+    <!-- p display none + button block: NO TXT, se muestra con boton-->
+
+        <p id="parrafo1" style="display:block">JavaScript puede ocultar elementos HTML (texto oculto 1) </p>
+
+        <p id="parrafo2" style="display:none">JavaScript puede mostrar elementos HTML (texto oculto 2) </p>
+
+        <p id="parrafo3" style="display:block">JavaScript puede mostrar elementos HTML (texto oculto 3) </p>
+
+
+        <button type="button" onclick="document.getElementById('parrafo1').style.display='none'">Ocultar Parrafo1</button>
+
+        <button type="button" onclick="document.getElementById('parrafo2').style.display='block'">Muestra Parrafo2</button>
+
+        <button type="button" onclick="document.getElementById('parrafo3').style.display='block'">Muestra Parrafo3</button>
+
+        <button type="button" onclick="document.getElementById('parrafo3').style.display='none'">Oculta Parrafo3</button>
+
+
+    </body>
+</html>
