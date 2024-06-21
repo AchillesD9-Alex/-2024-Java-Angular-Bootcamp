@@ -25,14 +25,18 @@ td[colspan="3"]:first-child {
 }
 
 /* Estilo específico para la celda 2 */
-th[rowspan="2"] {
+#celda2 {
     text-align: left; /* Alineación a la izquierda */
     background-color: #b3e0ff; /* Fondo azul celeste */
 }
 
+/* Estilo específico para la celda 2 */
+#celda6 {
+    text-align:right; /* Alineación a la izquierda */
+    background-color: #ea5bb6; /* Fondo rosado */
+}
+
 /* Estilo específico para celda 3, 5 y 8 */
-td:nth-of-type(3), /* Celda 3 */
-td:nth-of-type(5), /* Celda 5 */
-td:nth-of-type(8) { /* Celda 8 */
+#celda3, #celda5, #celda8{
     color: red; /* Color de letra rojo */
 }

@@ -1,0 +1,31 @@
+body {
+    background-image: url(penguin.jpeg);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  table {
+    width: 60%;
+    border-collapse: separate;
+      border-spacing: 1px; 
+      background-color: rgb(120, 120, 27);
+    
+  }
+  th,
+  td {
+    border: 1px solid;
+    padding: 1px;
+    text-align: center;
+  }
+  th {
+      background-color: white;
+      
+  }
+  td {
+      background-color: rgb(228, 230, 171);
+  }
