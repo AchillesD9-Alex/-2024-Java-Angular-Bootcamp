@@ -1,0 +1,16 @@
+table {
+    width:auto
+  }
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+  th,
+  td {
+    padding: 1px;
+    text-align: left;
+  }
+  th {
+    text-align: center;
+  }
