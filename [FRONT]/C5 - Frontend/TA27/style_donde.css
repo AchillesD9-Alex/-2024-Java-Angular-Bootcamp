@@ -1,0 +1,26 @@
+table {
+    table-layout: auto; /* Ajusta el tamaño de la tabla al contenido */
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366; /* Azul marino */
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(odd) td {
+    background-color: #cce7ff; /* Azul claro */
+    color: black;
+}
+
+tr:nth-child(even) td {
+    background-color: #e6f2ff; /* Celeste */
+    color: black;
+}

@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #141414;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.navbar img.logo {
+    height: 35px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin-left: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbar .menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar .icons {
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.navbar .icons img {
+    height: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.hero {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hero::after {
+    content: "";
+    background-image: url('img_netflix/bannersao.jpg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.7;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin: 0;
+    z-index: 1;
+}
+
+.row {
+    padding: 20px;
+}
+
+.row h2 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.row .thumbnails {
+    display: flex;
+    overflow-x: auto;
+}
+
+.row .thumbnails img {
+    width: calc(20% - 10px);
+    height: auto;
+    max-height: 150px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .menu {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .navbar .icons {
+        width: 100%;
+        padding-right: 0;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}

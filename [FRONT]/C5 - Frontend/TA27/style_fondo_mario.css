@@ -1,0 +1,61 @@
+#container {
+    display: block;
+  }
+
+  #panel {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #a4d3ff;
+    border: 2px solid red;
+    margin: 3%;
+    width: 35%;
+    height: 45vh;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  #mini-panel {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #a4d3ff;
+    border: 2px solid blue;
+    margin: 1%;
+    width: 20%;
+    height: 22vh;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  #nubes {
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    background-image: url(recursos/f03.png);
+    z-index: 1;
+  }
+
+  #bottom {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+  }
+
+  #level {
+    height: 100px;
+    background-image: url(recursos/f02.png);
+    background-repeat: no-repeat;
+  }
+
+  #suelo {
+    bottom: 0;
+    height: 12px;
+    background-image: url(recursos/f01.png);
+  }
+
+  p {
+    margin-left: 5%;
+    z-index: 3;
+  }

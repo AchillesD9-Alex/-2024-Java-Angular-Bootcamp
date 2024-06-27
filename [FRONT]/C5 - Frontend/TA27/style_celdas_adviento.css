@@ -1,0 +1,95 @@
+table {
+    border-spacing: 40px;
+    background-size: cover;
+    table-layout: fixed;
+    background-image: url(recursos/ac.jpg);
+  }
+
+  tr,
+  td {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: top;
+    background-color: white;
+  }
+
+
+  tr.mantel td {
+    background-image: url(/TA27-Tablas_DIV/recursos/back_mantel.jpg);
+  }
+
+  #A, #B, #C, #D{
+    background-image: url(recursos/back_mantel.jpg);
+
+  }
+
+  #B {
+    background-color: inherit;
+    background-position: center;
+    background-clip: content-box; 
+    padding: 10px;
+    box-sizing: border-box; 
+  }
+
+  #C {
+    background-size: cover; 
+    background-position: center;
+    background-clip: content-box;
+    box-sizing: border-box; 
+  }
+
+
+  #D {
+    background-size: cover; 
+    background-position: center;
+    background-clip: content-box; 
+    padding: 10px;
+    box-sizing: border-box; 
+  } 
+
+  #E {
+    background-image: url(recursos/dh.jpg);
+    background-size: 100px;
+  }
+
+  #F {
+    background-image: url(recursos/dh.jpg);
+    background-size: cover; 
+    background-position: center;
+    background-clip: content-box; 
+    padding: 10px;
+    box-sizing: border-box; 
+  }
+
+  #G {
+    background-image: url(recursos/dh_2.jpg);
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-clip: content-box; 
+  }
+
+  #H {
+    background-image: url(recursos/dh_3.jpg);
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  #I {
+    background: linear-gradient(78deg, rgba(119,187,65,0.821187850140056) 30%, rgba(45,106,14,1) 100%);
+  }
+
+  #J {
+    background: linear-gradient(180deg, rgba(180,142,73,1) 28%, rgba(142,112,57,1) 71%, rgba(180,142,73,1) 94%);
+  }
+
+  #K {
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(36,166,75,1) 100%);
+  }
+
+  #L {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(36,166,75,1) 100%);
+  }

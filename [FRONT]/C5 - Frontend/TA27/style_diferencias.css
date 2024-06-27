@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 1px;
+    
+    color: rgb(133, 59, 6);
+    
+    }
+    th,
+    
+    td {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+    
+    }
+    
+    .backverde {
+    background-color: rgb(203, 253, 152);
+    }
+    
+    .backrojo {
+    background-color: rgb(232, 185, 152);
+    }
+    
+    .backamarillo {
+    background-color: rgb(249, 249, 165);
+    }
+    .withBg {
+        background-image: url(huellas.jpg);
+        background-size: cover;
+        
+    }
+
+    

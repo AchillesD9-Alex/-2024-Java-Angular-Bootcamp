@@ -1,0 +1,42 @@
+/* Estilo para la tabla */
+table {
+    table-layout: auto; /* Ajusta el tamaño de la tabla al contenido */
+    border-collapse: collapse;
+}
+
+
+/* Estilo para todas las celdas encabezadas y datos */
+th, td {
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 8px;
+}
+
+/* Estilo específico para la primera fila */
+tr:first-child {
+    text-decoration: underline;
+    text-align: center;
+}
+
+/* Estilo específico para la celda 1 */
+td[colspan="3"]:first-child {
+    background-color: #7add7a; /* Fondo verde claro */
+}
+
+/* Estilo específico para la celda 2 */
+#celda2 {
+    text-align: left; /* Alineación a la izquierda */
+    background-color: #b3e0ff; /* Fondo azul celeste */
+}
+
+/* Estilo específico para la celda 2 */
+#celda6 {
+    text-align:right; /* Alineación a la izquierda */
+    background-color: #ea5bb6; /* Fondo rosado */
+}
+
+/* Estilo específico para celda 3, 5 y 8 */
+#celda3, #celda5, #celda8{
+    color: red; /* Color de letra rojo */
+}

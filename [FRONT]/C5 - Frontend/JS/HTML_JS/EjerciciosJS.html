@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h>EJERCICIOS JS</h>
+
+<p id="ejer1">Muestra el resultado aquí (se sobreescribe)</p> 
+
+<script>
+var numero = 50;
+document.getElementById('ejer1').innerHTML = numero;
+</script>
+
+<p id="cms1">Muéstrame aquí el CMS.</p> 
+
+<script>
+var cms = "WordPress";
+document.getElementById("cms1").innerHTML = cms;
+</script>
+
+<p id="temp">Muestra el resultado aquí</p> 
+
+<script>
+var temperatura = "frio";
+document.getElementById('temp').innerHTML = temperatura;
+</script>
+
+<p id="sum">Muestra el resultado aquí</p> 
+
+<script>
+var x = 2;
+var y = 3;
+document.getElementById('sum').innerHTML= (x+y);
+</script>
+
+<p id="sum2">Muestra el resultado aquí</p> 
+
+<script>
+var x = 5;
+var y = 10;
+var z = x + y;
+document.getElementById('sum2').innerHTML= z;
+</script>
+
+<p id= "persona">Muestra la persona y edad.</p> 
+
+<script>
+var persona = {
+    nombre: "Cristina",
+    apellido: "García",
+    edad: 39
+};
+document.getElementById("persona").innerHTML = 
+persona.nombre + " " + persona.apellido + " tiene " + persona.edad + " años.";
+</script>
+
+<p id="donde"></p> 
+
+<script>
+var x = 1;
+var y = 6;
+var z = x + y;
+document.getElementById("donde").innerHTML = z;
+</script>
+
+<p id="demo"></p> 
+
+<script>
+var x = 60;
+document.getElementById("demo").innerHTML = (x/3);
+</script>
+
+<p id="mult2">Aquí la multiplicación.</p> 
+
+<script>
+var x = 6;
+var y = 9;
+document.getElementById("mult2").innerHTML = x*y;
+</script>
+
+<p id= "algunevento"onclick="this.innerHTML='¡BUEN TRABAJO!'">Haz clic</p>
+
+<button id="hola" onclick = "saluda()">Clic</button>
+
+<p id="demo2"></p> 
+
+<script>
+function saluda() {
+    document.getElementById("demo2").innerHTML = "Hola Mundo";
+}
+</script>
+
+<span id="evento2"
+    onmouseenter="this.style.color='red'" 
+    onmouseout="this.style.color='black'">
+    Pasa el ratón por aqui encima
+</span>
+
+<p id="demo3"></p> 
+
+<script>
+var txt = "Hola Mundo!";
+document.getElementById("demo3").innerHTML = "Longitud de \"Hola Mundo!\" es: " +txt.length;
+</script>
+
+<p id="demo4"></p> 
+
+<script>
+document.getElementById("demo4").innerHTML = "Nos gusta \"WordPress\".";
+</script>
+
+<p id="demo5">Muestra el resultado aqui.</p> 
+
+<script>
+var str1 = "¡Hola ";
+var str2 = "mundo!";
+document.getElementById("demo5").innerHTML = str1+str2
+</script>
+
+<p id="demo6"></p> 
+
+<script>
+var txt= "Hello World!";
+document.getElementById("demo6").innerHTML = txt;
+</script>
+
+<p id="demo7">Muestra el resultado aquí.</p>
+
+<script>
+var rand_num = Math.round(Math.random()*10);
+document.getElementById("demo7").innerHTML = "Random del 1 al 10: "+rand_num;
+</script>
+
+<p id="demo8">Muestra el resultado aquí.</p>
+
+<script>
+document.getElementById("demo8").innerHTML = Math.max(0, 150, 30, 20, -8);
+</script>
+
+<p id="demo9">Muestra el resultado.</p>
+
+<script>
+var num = 5.3;
+document.getElementById("demo9").innerHTML = Math.round(num);
+</script>
+
+<p id="demo10">Muestra el resultado.</p>
+
+<script>
+var num = 9;
+document.getElementById("demo10").innerHTML = Math.sqrt(num);
+</script>
+
+<p id="demo11"></p> 
+
+<script>
+var x = 10;
+x += 5;
+
+document.getElementById("demo12").innerHTML = x;
+</script>
+
+<p id="demo12"></p> 
+
+<script>
+    var x = 17;
+    x -= 7;
+    
+    document.getElementById("demo12").innerHTML = x;
+</script>
+
+<p id="demo13"></p> 
+
+<script>
+    var x = 5;
+    x *= 10;
+    
+    document.getElementById("demo13").innerHTML = x;
+</script>
+
+<p id="demo14"></p> 
+
+<script>
+    var x = 100;
+    x /= 10;
+    
+    document.getElementById("demo14").innerHTML = x;
+</script>
+
+<p id="demo15"></p> 
+
+<script>
+    var x = 5;
+    x *= 10;
+    
+    document.getElementById("demo15").innerHTML = x;
+</script>
+
+<p id="demo16"></p> 
+
+<script>
+    var x = 10;
+    x %= 3;
+    
+    document.getElementById("demo16").innerHTML = x;
+</script>
+
+<p id="demo17"></p>
+
+<script>
+function myFunction() {
+    document.getElementById("demo17").innerHTML = "Hello World!";
+}
+myFunction();
+</script>
+
+<p id="demo18"></p>
+
+<script>
+function myFunc() {
+    document.getElementById("demo18").innerHTML = "Hello World!";
+}
+myFunc();
+</script>
+
+<p id="demo19"></p>
+
+<script>
+function myFunction() {
+    prod= 5*5;
+    document.getElementById("demo19").innerHTML = prod;
+}
+myFunction();
+</script>
+
+<p id="demo20">Muestra el resultado aquí.</p>
+
+<script>
+var nombre = "Antonio";
+function mostraNom(nombre) {
+    return "Hola, " + nombre+"!";
+}
+document.getElementById("demo20").innerHTML = mostraNom(nombre);
+</script>
+
+<p id="demo21">Muestra resultado.</p>
+
+<script>
+function miFuncion() {
+    txt="Hola Mundo!";
+    document.getElementById("demo21").innerHTML = txt;
+}
+miFuncion();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

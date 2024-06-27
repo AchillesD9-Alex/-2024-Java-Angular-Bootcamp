@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+.header-left a, .header-right a, .footer-left a, .footer-right a, .footer-center a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #5f6368;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right .profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.header-right .menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo img {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.search-bar form {
+    width: 100%;
+    max-width: 600px; /* Ajustado para ser más ancho */
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    outline: none;
+    font-size: 16px;
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+.search-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-buttons button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #f8f9fa;
+    border: 1px solid #dfe1e5;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-buttons button:hover {
+    background-color: #f1f3f4;
+}
+
+.footer-up {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+.footer-up a {
+    text-decoration: none;
+    color: #5f6368;
+}
+
+.footer-center {
+    display: flex;
+    align-items: center;
+}
+
+.footer-center .leaf-icon {
+    width: 24px;  /* Ajustado para ser un poco más grande */
+    height: 24px; /* Ajustado para ser un poco más grande */
+    margin-right: 5px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+@media (max-width: 600px) {
+    .header-left, .header-right, .footer-left, .footer-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-right .menu-icon {
+        display: block;
+    }
+}

@@ -1,0 +1,23 @@
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilo para todas las celdas */
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Estilo específico para la primera y tercera fila */
+tr:first-child td, tr:nth-child(3) td {
+    font-weight: bold;
+}
+.underlined-blue {
+    text-decoration: underline;
+    color: blue;
+}
+
+

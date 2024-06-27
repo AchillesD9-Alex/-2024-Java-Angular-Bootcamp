@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('imagenes/cielo.jpeg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+
+.logo img {
+    max-width: 100px;
+}
+
+.language a, .session a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #0078d4;
+}
+
+.main-content {
+    padding: 50px;
+    margin-top: 80px; 
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-bar input {
+    width: 50%; 
+    max-width: 300px; 
+    padding: 8px; 
+    font-size: 14px; 
+}
+.news-table {
+width: 100%;
+border-collapse: collapse;
+}
+
+.news-item {
+padding: 10px;
+text-align: center;
+border: none; 
+}
+
+.news-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.news-item p {
+    margin: 0;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    position: fixed; /* Fija el footer en una posición fija */
+    bottom: 0; /* Fija el footer en la parte inferior de la ventana */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho de la ventana */
+    z-index: 1000; /* Asegura que el footer esté encima de otros elementos */
+}
+
+.footer a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #0078d4;
+}
