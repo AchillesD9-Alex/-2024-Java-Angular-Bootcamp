@@ -1,0 +1,38 @@
+body {
+    padding-top: 56px;
+}
+
+.blog-header {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.blog-title {
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.blog-description {
+    font-size: 1.25rem;
+    color: #666;
+}
+
+.blog-main {
+    font-size: 1rem;
+}
+
+.sidebar {
+    font-size: 0.875rem;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+}
+
+.sidebar h4 {
+    margin-top: 0;
+}
+
+.sidebar .list-unstyled {
+    padding-left: 0;
+}

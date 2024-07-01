@@ -1,0 +1,12 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.card {
+    margin-top: 50px;
+}
+
+#display {
+    height: 60px;
+    font-size: 2rem;
+}

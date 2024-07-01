@@ -1,0 +1,45 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.profile-header {
+    background: url('background.png') no-repeat center center;
+    background-size: cover;
+    padding: 50px 0;
+    position: relative;
+    color: white;
+}
+
+#profile-picture {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid white;
+    margin-top: -75px; /* Ajustar según sea necesario */
+    background-color: white;
+}
+
+.profile-header h1,
+.profile-header h3 {
+    color: white;
+}
+
+.profile-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.profile-header h3 {
+    color: lightgray;
+}
+
+h4 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.fixed-bottom {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}

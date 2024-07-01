@@ -1,0 +1,45 @@
+body {
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.login-form {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.login-form h4 {
+  margin-bottom: px;
+  color: #333;
+}
+
+.login-form .form-control {
+  border-radius: 5px;
+  height: 45px;
+}
+
+.login-form .btn {
+  width: 30%;
+  height: 45px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.login-form .btn-secondary {
+  background-color: #17a2b8;
+  border: none;
+  color: white;
+  margin: 5px 0;
+}
+
+.login-form .btn-secondary:hover {
+  background-color: #138496;
+}

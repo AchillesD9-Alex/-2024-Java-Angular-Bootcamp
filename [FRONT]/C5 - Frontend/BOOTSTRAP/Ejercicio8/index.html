@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Calculadora</h3>
+                        <div class="form-group">
+                            <input type="text" id="display" class="form-control text-right" readonly>
+                        </div>
+                        <div class="btn-group d-flex flex-wrap">
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('7')">7</button>
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('8')">8</button>
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('9')">9</button>
+                            <button class="btn btn-warning col-3" onclick="setOperation('/')">/</button>
+
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('4')">4</button>
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('5')">5</button>
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('6')">6</button>
+                            <button class="btn btn-warning col-3" onclick="setOperation('*')">*</button>
+
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('1')">1</button>
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('2')">2</button>
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('3')">3</button>
+                            <button class="btn btn-warning col-3" onclick="setOperation('-')">-</button>
+
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('0')">0</button>
+                            <button class="btn btn-secondary col-3" onclick="appendNumber('.')">.</button>
+                            <button class="btn btn-success col-3" onclick="calculate()">=</button>
+                            <button class="btn btn-warning col-3" onclick="setOperation('+')">+</button>
+
+                            <button class="btn btn-danger col-12 mt-2" onclick="clearDisplay()">C</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts.js"></script>
+</body>
+</html>
