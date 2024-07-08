@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de DNI</title>
+</head>
+<body>
+    <h1>Verificación de la letra del DNI</h1>
+    <form id="dniForm">
+        <label for="dniNumber">Número de DNI:</label>
+        <input type="text" id="dniNumber" name="dniNumber" required>
+        <label for="dniLetter">Letra del DNI:</label>
+        <input type="text" id="dniLetter" name="dniLetter" required maxlength="1">
+        <button type="submit">Verificar</button>
+    </form>
+    <p id="result"></p>
+    <script src="ej06.js"></script>
+</body>
+</html>
